@@ -1,0 +1,140 @@
+/* styles.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#agent-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+#agent-info img {
+    border-radius: 50%;
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #e0e0e0;
+}
+
+#agent-info div {
+    flex: 1;
+}
+
+#agent-info h2 {
+    margin: 0 0 10px;
+    color: #007bff;
+}
+
+#agent-info p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+#availability {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 0.9em;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+
+#availability th, #availability td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#availability th {
+    background-color: #007bff;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.available {
+    background-color: #c8e6c9;
+    cursor: pointer;
+}
+
+.unavailable {
+    background-color: #ffcdd2;
+    cursor: not-allowed;
+}
+
+.buttons {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#book-appointment {
+    background-color: #28a745;
+    color: white;
+}
+
+#book-appointment:hover {
+    background-color: #218838;
+}
+
+#contact-agent {
+    background-color: #007bff;
+    color: white;
+}
+
+#contact-agent:hover {
+    background-color: #0069d9;
+}
+
+#view-cv {
+    background-color: #ffc107;
+    color: black;
+}
+
+#view-cv:hover {
+    background-color: #e0a800;
+}
+
+#confirmationMessage {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #28a745;
+}
+
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); 
