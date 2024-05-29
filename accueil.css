@@ -257,6 +257,7 @@ main {
 }
 
 .btn_connexion {
+    z-index: 500;
     width: 70%;
     height: 30px;
     border : none;
@@ -268,6 +269,10 @@ main {
     font-weight: bold;
     font-size: 17px;
 
+}
+
+.btn_connexion :hover {
+    color : yellow;
 }
 
 #overlay_connexion .input_log {
