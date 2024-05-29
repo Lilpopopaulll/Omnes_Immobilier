@@ -1,15 +1,16 @@
 /* styles.css */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f0f2f5;
+    background-color: #ffffff;
     margin: 0;
     padding: 0;
 }
 
+
 .container {
     max-width: 1200px;
     margin: 50px auto;
-    background: #ffffff;
+    background: #d6d3f6;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -18,9 +19,9 @@ body {
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #0056b3;
     margin-bottom: 30px;
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: bold;
 }
 
@@ -44,12 +45,15 @@ h1 {
 
 #agent-info h2 {
     margin: 0 0 10px;
-    color: #007bff;
+    color: #8b50a4;
+    font-size: 1.8em;
+    font-weight: bold;
 }
 
 #agent-info p {
     margin: 5px 0;
-    color: #555;
+    color: #333;
+    font-size: 1em;
 }
 
 .table-container {
@@ -60,31 +64,31 @@ h1 {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 30px;
-    font-size: 0.9em;
+    font-size: 1em;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
 }
 
 #availability th, #availability td {
-    border: 1px solid #ddd;
+    border: 1px solid #dbbbff;
     padding: 12px 15px;
     text-align: center;
     white-space: nowrap;
 }
 
 #availability th {
-    background-color: #007bff;
+    background-color: #633571;
     color: #ffffff;
     font-weight: bold;
 }
 
 .available {
-    background-color: #c8e6c9;
+    background-color: #ffffff;
     cursor: pointer;
 }
 
 .unavailable {
-    background-color: #ffcdd2;
+    background-color: #b8b8b8;
     cursor: not-allowed;
 }
 
@@ -103,38 +107,38 @@ button {
 }
 
 #book-appointment {
-    background-color: #28a745;
+    background-color: #8254a8;
     color: white;
 }
 
 #book-appointment:hover {
-    background-color: #218838;
+    background-color: #7c2188;
 }
 
 #contact-agent {
-    background-color: #007bff;
+    background-color: #fcafff;
     color: white;
 }
 
 #contact-agent:hover {
-    background-color: #0069d9;
+    background-color: #8e5fa2;
 }
 
 #view-cv {
-    background-color: #ffc107;
-    color: black;
+    background-color: #5828a7;
+    color: rgb(255, 255, 255);
 }
 
 #view-cv:hover {
-    background-color: #e0a800;
+    background-color: #640e7e;
 }
 
 #confirmationMessage {
     margin-top: 20px;
     text-align: center;
     font-size: 18px;
-    color: #28a745;
+    color: #3d3d3d;
 }
 
 /* Font import */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
