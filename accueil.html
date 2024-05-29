@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Omnes Immobilier</title>
     <link rel="stylesheet" href="accueil.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
@@ -18,10 +19,25 @@
                 <li><a href="#">Tout parcourir</a></li>
                 <li><a href="#">Recherche</a></li>
                 <li><a href="rdv.html">Rendez-vous</a></li>
-                <li><a href="#" class="btn-connexion">Connexion</a></li>
+                <li><a href="#" class="btn_toggle_connexion">Connexion</a></li>
             </ul>
         </nav>
     </header>
+    <div id="overlay_connexion">
+        <h1>CONNEXION</h1>
+        <div class="log">
+            <h2>EMAIL</h2>
+            <input type="text" placeholder="Entrer votre adresse email" name="email" >
+            <div class="lg_log"></div>
+        </div>
+        <div class="log">
+            <h2>MOT DE PASSE</h2>
+            <input type="password" placeholder="Entrer votre mot de passe" required="required" name="password">
+            <div class="lg_log"></div>
+        </div>
+        <button class="btn_connexion">Connexion</button>
+        <p>Mot de passe oublié ?</p>
+    </div>
     <main class="container">
         <section class="hero">
             <img

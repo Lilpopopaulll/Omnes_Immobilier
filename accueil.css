@@ -58,8 +58,8 @@ nav ul li a:hover {
     color: #ffcc00; /* Hover color for links */
 }
 
-.btn-connexion {
-    background-color: white; /* White background for the button */
+.btn_toggle_connexion {
+    background-color: rgb(255, 255, 255); /* White background for the button */
     color: #000000;
     padding: 5px 10px;
     margin-right: 60px;
@@ -69,7 +69,7 @@ nav ul li a:hover {
     margin-left: 20px; /* Add margin to the left of the button to separate from the previous element */
 }
 
-.btn-connexion:hover {
+.btn_toggle_connexion:hover {
     background-color: #e3bdf065;
     color: white;
 }
@@ -237,3 +237,63 @@ main {
 
 /* Font import */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+#overlay_connexion {
+    
+    position : absolute;
+    color : white;
+    top : 50px;
+    left: 78%;
+    border-radius : 2px;
+    width: 20%;
+    height: 88%;
+    background-color: rgba(255, 255, 255, 0.3);
+    text-align : left;
+    padding-left: 30px;
+    padding-top: 50px;
+    
+}
+#overlay_connexion h1 {
+    margin-bottom: 40px;
+}
+
+
+
+.lg_log {
+    position: relative;
+    top : -10px;
+    border: 1px solid rgba(161, 99, 158, 0.644);
+    width: 60%;
+}
+
+.btn_connexion {
+    width: 70%;
+    height: 30px;
+    border : none;
+    border-radius: 50px;
+    background-color: #fff;
+    position: relative;
+    top : 4%;
+    left: 8%;
+    font-weight: bold;
+    font-size: 17px;
+
+}
+
+#overlay_connexion input {
+    border : none;
+    background: transparent;
+    position: relative;
+    top : -15px;
+    font-weight: bold;
+    font-size: 14px;
+    color : rgba(77, 74, 69, 0.452)
+}
+ 
+#overlay_connexion p {
+    position: relative;
+    top : 50px;
+    right: 30px;
+    text-align: center;
+}
+
