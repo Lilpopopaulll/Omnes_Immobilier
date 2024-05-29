@@ -9,7 +9,7 @@ html, body {
 }
 
 .container {
-    background-image: url("image.accueil.jpg");
+    background-image: url("bg.jpg");
     width: 100%;
     height: 3000px; /* Ajustez cette valeur en fonction de la hauteur souhaitée pour le défilement */
     background-size: contain; /* Adapte l'image à la taille de l'écran */
@@ -31,10 +31,9 @@ header {
     z-index: 1000;
 }
 
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #800080; /* Purple color for the logo */
+.logo  .img-2 {
+    width: 20%;
+    height: auto;
 }
 
 nav ul {
@@ -61,8 +60,9 @@ nav ul li a:hover {
 
 .btn-connexion {
     background-color: white; /* White background for the button */
-    color: #800080;
+    color: #000000;
     padding: 5px 10px;
+    margin-right: 60px;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease;
@@ -70,7 +70,7 @@ nav ul li a:hover {
 }
 
 .btn-connexion:hover {
-    background-color: #ffcc00;
+    background-color: #e3bdf065;
     color: white;
 }
 
@@ -81,26 +81,59 @@ main {
 
 .hero {
     display: flex;
+    position : relative;
+    top : 80px;
+    margin-left : 50px;
+    text-align: left;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: left;
     height: 100vh;
     color: white;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
-
+.hero .img-2 {
+    display: block; /* Assurer que l'image est un bloc */
+    margin-left: 190px;
+    margin-bottom: 40px;
+    width: 5%; /* Ajuster la largeur pour rendre l'image plus petite */
+    height: auto; 
+}
 .hero h1 {
     font-size: 3em;
     margin: 0 0 20px;
     color: #fff; /* White for the main title */
 }
 
+.hero #lg {
+    position : relative;
+    left : 9%;
+    border: 1px solid rgba(74, 18, 63, 0.534);
+    width: 20%;
+}   
+
+
 .hero p {
+    width : 30%;
     font-size: 1.2em;
-    margin: 0 0 40px;
+    margin-left : 40px;
+    text-align : center;
     color: #fff;
 }
 
+.arrow {
+    border-radius: 100%;
+    position: relative;
+    bottom : 6%;
+    width: 50px;
+    height: 50px;
+    background-color: #f64497af;
+    margin: auto;
+}
+
+.separation {
+    margin-left: 10%;
+    border : 1px solid rgba(212, 88, 196, 0.6);
+    width : 80%;
+}
 .features {
     display: flex;
     justify-content: space-around;
@@ -110,23 +143,62 @@ main {
 }
 
 .feature {
-    background: rgba(224, 224, 224, 0.9); /* Semi-transparent light grey background for the boxes */
+    background: none; /* No background */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 10px;
     flex: 1;
-    min-width: 250px;
-    max-width: 300px;
+    min-width: 200px;
+    max-width: 250px;
+    position: relative; /* Necessary for the pseudo-elements */
 }
 
+.feature::before,
+.feature::after {
+    content: '';
+    position: absolute;
+    border-radius: 10px;
+    pointer-events: none; /* Ensures the pseudo-elements do not block interactions with the content */
+    width: calc(100% + 4px); /* Adjust to cover the borders */
+    height: calc(100% + 4px);
+    top: -2px; /* Adjust to cover the borders */
+    left: -2px;
+    z-index: 1; /* Ensure it stays above the background but below the content */
+    box-sizing: border-box;
+}
+
+.feature::before {
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    background: linear-gradient(135deg, rgba(255, 0, 150, 0.7), rgba(255, 0, 150, 0) 50%);
+    background-clip: border-box;
+    background-origin: border-box;
+    mask: linear-gradient(135deg, rgba(255, 0, 150, 0.7), rgba(255, 0, 150, 0) 50%);
+    mask-composite: exclude;
+    -webkit-mask-composite: exclude; /* For Safari */
+}
+
+.feature::after {
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+    background: linear-gradient(-45deg, rgba(255, 0, 150, 0.7), rgba(255, 0, 150, 0) 50%);
+    background-clip: border-box;
+    background-origin: border-box;
+    mask: linear-gradient(-45deg, rgba(255, 0, 150, 0.7), rgba(255, 0, 150, 0) 50%);
+    mask-composite: exclude;
+    -webkit-mask-composite: exclude; /* For Safari */
+}
+
+
+
 .feature h2 {
-    color: #0056b3;
+    color: #ffffff;
     margin-top: 0;
 }
 
 .feature p {
-    color: #555;
+    color: #ffffff;
 }
 
 .actions {
