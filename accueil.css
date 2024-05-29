@@ -1,0 +1,276 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Inter, sans-serif;
+    overflow-x: hidden;
+}
+
+.Accueil {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: white;
+}
+
+.Architecture55857371 {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.Rectangle8 {
+    width: 100%;
+    height: 1891px;
+    position: absolute;
+    top: 918px;
+    background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0.60) 70%, rgba(44.68, 44.68, 44.68, 0.25) 93%, rgba(102, 102, 102, 0) 100%);
+}
+
+.Rectangle7 {
+    width: 100%;
+    height: 1442px;
+    position: absolute;
+    top: 2774px;
+    background: black;
+}
+
+.Line2 {
+    width: calc(100% - 238px);
+    height: 0;
+    position: absolute;
+    top: 1030px;
+    left: 119px;
+    border: 2px #DEACC4 solid;
+}
+
+.Avantage {
+    left: 84px;
+    top: 1130px;
+    position: absolute;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 22px;
+    display: flex;
+}
+
+.Frame2, .Frame3, .Frame4, .Frame5 {
+    height: 396px;
+    padding: 35px 24px;
+    border: 6px #CE9FC0 solid;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    display: flex;
+}
+
+.Accompagnement, .Transparence, .Innovation, .Expertise {
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    word-wrap: break-word;
+}
+
+.Line3 {
+    width: 123px;
+    height: 0;
+    border: 1px #E3B2D4 solid;
+}
+
+.Frame2 div, .Frame3 div, .Frame4 div, .Frame5 div {
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Group1 {
+    width: 77px;
+    height: 77px;
+    position: absolute;
+    left: calc(50% - 38.5px);
+    top: 886px;
+}
+
+.Ellipse1 {
+    width: 69px;
+    height: 69px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    background: #D9B0C4;
+    border-radius: 50%;
+}
+
+.Ellipse2 {
+    width: 77px;
+    height: 77px;
+    position: absolute;
+    border-radius: 50%;
+    border: 2px #D9B0C4 solid;
+}
+
+.FeArrowLeft {
+    width: 49px;
+    height: 49px;
+    padding: 8.17px 14.29px;
+    position: absolute;
+    top: 67px;
+    left: 14px;
+    transform: rotate(-90deg);
+    transform-origin: 0 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.Vector {
+    width: 20.42px;
+    height: 32.67px;
+    background: white;
+}
+
+.Frame1 {
+    left: 93px;
+    top: 252px;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    display: flex;
+}
+
+.Logo {
+    width: 82px;
+    height: 120px;
+    position: relative;
+}
+
+.Logo .Rectangle10 {
+    width: 67px;
+    height: 71px;
+    position: absolute;
+    top: 49px;
+    left: 7px;
+    background: white;
+    border-radius: 42.5px;
+}
+
+.Logo .Rectangle11 {
+    width: 38px;
+    height: 40px;
+    position: absolute;
+    top: 64px;
+    left: 22px;
+    background: #B4A0A0;
+    border-radius: 42.5px;
+}
+
+.OmnesImmobilier {
+    color: white;
+    font-size: 64px;
+    font-weight: 700;
+    text-transform: uppercase;
+    word-wrap: break-word;
+}
+
+.TrouverLeBienDeVosRVesGrCeNotreSLectionUniqueEnSonGenreEtNosAgents {
+    width: 586px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Line1 {
+    width: 387px;
+    height: 0;
+    border: 2px rgba(60.54, 38.13, 155.13, 0.60) solid;
+}
+
+.TopBar {
+    width: 100%;
+    height: 74px;
+    padding: 18px 20px;
+    position: absolute;
+    top: 0;
+    background: rgba(129, 120, 167, 0.60);
+    border: 1px #A7809B solid;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    display: flex;
+}
+
+.TopBar .Menu {
+    height: 48px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1000px;
+    display: flex;
+}
+
+.TopBar .Logo {
+    width: 32.8px;
+    height: 48px;
+    position: relative;
+}
+
+.TopBar .Logo .Rectangle10 {
+    width: 26.8px;
+    height: 28.4px;
+    position: absolute;
+    top: 19.6px;
+    left: 2.8px;
+    background: white;
+    border-radius: 42.5px;
+}
+
+.TopBar .Logo .Rectangle11 {
+    width: 15.2px;
+    height: 16px;
+    position: absolute;
+    top: 25.6px;
+    left: 8.8px;
+    background: #B4A0A0;
+    border-radius: 42.5px;
+}
+
+.TopBar .Menu {
+    width: 807px;
+    height: 29px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 80px;
+    display: flex;
+}
+
+.TopBar .Accueil, .TopBar .ToutParcourir, .TopBar .Recherche, .TopBar .RendezVous {
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.BtnConnexion {
+    padding: 4px 24px;
+    background: white;
+    border-radius: 23px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.BtnConnexion .Connexion {
+    color: rgba(0, 0, 0, 0.80);
+    font-size: 20px;
+    font-weight: 700;
+    word-wrap: break-word;
+}

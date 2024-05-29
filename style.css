@@ -1,0 +1,8 @@
+.container {
+    background-image: url("bg.jpg");
+    width: 100%;
+    height: 3000px;
+    background-size: contain; /* Adapte l'image à la taille de l'écran */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    background-position: top center; /* Centre l'image dans le conteneur */
+}
