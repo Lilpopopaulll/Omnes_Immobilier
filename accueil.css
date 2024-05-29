@@ -270,7 +270,7 @@ main {
 
 }
 
-#overlay_connexion input {
+#overlay_connexion .input_log {
     z-index: 200;
     border : none;
     background: transparent;
