@@ -29,12 +29,13 @@ if ($db_found) {
     if (mysqli_num_rows($result_properties) > 0) {
         echo "<table border='1'>";
         echo "<tr>";
-        echo "<th>ID</th>";
+        echo "<th>N° de propriété</th>";
         echo "<th>Adresse</th>";
         echo "<th>Ville</th>";
         echo "<th>Prix</th>";
         echo "<th>Image</th>";
         echo "<th>Agent Immobilier</th>";
+        echo "<th>Statut</th>";
         echo "</tr>";
 
         // Afficher les propriétés trouvées
@@ -43,9 +44,10 @@ if ($db_found) {
             echo "<td>" . $property['ID_propriete'] . "</td>";
             echo "<td>" . $property['Adresse'] . "</td>";
             echo "<td>" . $property['Ville'] . "</td>";
-            echo "<td>" . $property['Prix'] . "</td>";
-            echo "<td><img src='" . $property['Image'] . "' alt='Image de la propriété' width='100'></td>";
-            echo "<td>" . $property['Agent_ID'] . "</td>";
+            echo "<td>" . $property['Prix'] . "€</td>";
+            echo "<td><img src='" . $property['Image'] . "' alt='Image de la propriété' width='500'></td>";
+            echo "<td>" . $property['agent_nom'] . "</td>";
+            echo "<td>" . $property['Statut'] . "</td>";
             echo "</tr>";
         }
         echo "</table>";
