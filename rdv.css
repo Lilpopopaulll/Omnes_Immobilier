@@ -118,7 +118,7 @@ main {
 .fond_noir {
     position: relative;
     bottom: 1080px;
-    width: 100%;
+    width: 100%;display: none;
     height: 800px;
     background-color: black;
 }
