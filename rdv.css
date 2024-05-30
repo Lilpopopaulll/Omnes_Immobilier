@@ -77,6 +77,7 @@ nav ul li a:hover {
 main {
     padding-top: 100px; /* Adjusted padding for fixed header */
     text-align: center;
+    position: relative;
 }
 
 .hero {
@@ -108,6 +109,7 @@ main {
     background-color: rgba(255, 255, 255, 0.678);
     margin-left: 10%;
 }
+
 .fond_noir_dg {
     position: relative;
     bottom : 1080px;
@@ -115,10 +117,47 @@ main {
     height: 800px;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.50) 55%, black 100%)
 }
+
 .fond_noir {
     position: relative;
     bottom: 1080px;
     width: 100%;display: none;
     height: 800px;
     background-color: black;
+}
+
+.agents {
+    position: absolute;
+    top: 520px; /* Position ajustée pour être plus bas */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    text-align: center;
+    padding: 20px;
+}
+
+.agents-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.agent {
+    text-align: center;
+}
+
+.agent-circle {
+    width: 60px;
+    height: 60px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: transparent; /* Transparence pour voir l'image de fond */
+    margin: 0 auto 10px auto; /* Centrer le cercle et ajouter un espace en bas */
+}
+
+.agent p {
+    font-size: 1em;
+    margin: 0;
+    color: #333;
 }
