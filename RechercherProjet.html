@@ -7,12 +7,11 @@
     <link rel="stylesheet" href="RechercherProjet.css">
 </head>
 <body>
-    
-    <div id ="search-container">
-        <div id="search-button">
-            Rechercher
+    <form action="RechercheProjet.php" method="post">
+        <div id="search-container">
+            <input type="text" name="id" id="search-input" placeholder="Nom d'un agent immobilier ou Numéro d'une propriété ou Ville">
+            <input type="submit" name="valider" value="Rechercher" id="search-button">
         </div>
-        <input type ="texte"  id ="search-input" placeholder="Nom d'un agent immobilier ou Numéro d'une propriété ou Ville">
-    </div>
+    </form>
 </body>
 </html>
