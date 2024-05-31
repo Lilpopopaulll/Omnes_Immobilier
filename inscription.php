@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glassmorphism Login Form | CodingNepal</title>
-  <link rel="stylesheet" href="inscription.css">
+  <link rel="stylesheet" href="./styles/inscription.css">
 </head>
 <body>
   <div class="wrapper">
