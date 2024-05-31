@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 31 mai 2024 à 18:25
+-- Généré le : ven. 31 mai 2024 à 18:53
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `agents_immobilier` (
   `Courriel` varchar(255) NOT NULL,
   `Numéro de téléphone` int NOT NULL,
   `ID` int NOT NULL AUTO_INCREMENT,
+  `Spécialité` varchar(50) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -40,12 +41,12 @@ CREATE TABLE IF NOT EXISTS `agents_immobilier` (
 -- Déchargement des données de la table `agents_immobilier`
 --
 
-INSERT INTO `agents_immobilier` (`Nom_prenom`, `Courriel`, `Numéro de téléphone`, `ID`) VALUES
-('Dupont Marie', 'marie.dupont@exemple.com', 612345678, 1),
-('Martin Jean', 'jean.martin@exemple.com', 698765432, 2),
-('Bernard Sophie', 'sophie.bernard@exemple.com', 623456789, 3),
-('Moreau Pierre', 'pierre.moreau@exemple.com', 687654321, 4),
-('Lefevre Emma', 'emma.lefevre@exemple.com', 654321098, 5);
+INSERT INTO `agents_immobilier` (`Nom_prenom`, `Courriel`, `Numéro de téléphone`, `ID`, `Spécialité`) VALUES
+('Dupont Marie', 'marie.dupont@exemple.com', 612345678, 1, 'Immobilier résidentiel'),
+('Martin Jean', 'jean.martin@exemple.com', 698765432, 2, 'Immobilier commercial'),
+('Bernard Sophie', 'sophie.bernard@exemple.com', 623456789, 3, 'Terrain'),
+('Moreau Pierre', 'pierre.moreau@exemple.com', 687654321, 4, 'Appartement à louer'),
+('Lefevre Emma', 'emma.lefevre@exemple.com', 654321098, 5, 'Appartement à louer');
 
 -- --------------------------------------------------------
 
