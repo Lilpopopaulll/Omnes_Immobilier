@@ -24,7 +24,7 @@ session_start(); // Démarrer la session
                 <li><a href="rdv.html">Rendez-vous</a></li>
                 <?php
                 if (isset($_SESSION['user_id'])) {
-                    echo '<li><a href="#" class="btn_toggle_compte">'.$_SESSION['user_id'].'</a></li>';
+                    echo '<li><a href="profil.php" class="btn_toggle_compte">'.$_SESSION['user_id'].'</a></li>';
                 } else {
                     echo '<li><a href="#" class="btn_toggle_connexion">Connexion</a></li>';
                 }
@@ -35,7 +35,7 @@ session_start(); // Démarrer la session
     
     <!-- Formulaire  -->
     <form method="post" action="connexion.php">
-        <div id="overlay_connexion">
+        <div id="overlay_connexion" class="overlay hidden">
             <h1>CONNEXION</h1>
             <div class="log">
                 <h2>IDENTIFIANT</h2>
@@ -52,24 +52,6 @@ session_start(); // Démarrer la session
             <div class="inscription">
                 <p>Pas encore de compte ? <a href="inscription.php">S'inscrire</a></p>
             </div>
-        </div>
-    </form>
-    <form method="post" action="connexion.php">
-        <div id="overlay_compte">
-            <?php
-            echo '<h1>'.$_SESSION['user_id'].'<h1>';
-            ?>
-            <div class="log">
-                <h2>EMAIL</h2>
-                <input class="input_log" type="text" placeholder="Entrer votre identifiant" name="id" required="required">
-                <div class="lg_log"></div>
-            </div>
-            <div class="log">
-                <h2>MOT DE PASSE</h2>
-                <input class="input_log" type="password" placeholder="Entrer votre mot de passe" required="required" name="password">
-                <div class="lg_log"></div>
-            </div>
-            <a href="deconnexion.php" class="btn_deconnexion">Deconnexion</a>
         </div>
     </form>
     

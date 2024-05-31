@@ -4,23 +4,31 @@ document.addEventListener('DOMContentLoaded', function () {
     const overlayConnexion = document.getElementById('overlay_connexion');
     const overlayCompte = document.getElementById('overlay_compte');
 
+    function toggleOverlay(overlay) {
+        if (overlay.classList.contains('show')) {
+            overlay.classList.remove('visible');
+            setTimeout(() => {
+                overlay.classList.remove('show');
+                overlay.classList.add('hidden');
+            }, 700); // Correspond à la durée de l'animation
+        } else {
+            overlay.classList.remove('hidden');
+            overlay.classList.add('show');
+            setTimeout(() => {
+                overlay.classList.add('visible');
+            }, 1); // Petit délai pour s'assurer que la transition s'applique
+        }
+    }
+
     if (btnToggleConnexion) {
         btnToggleConnexion.addEventListener('click', function () {
-            if (overlayConnexion.style.display === 'none' || overlayConnexion.style.display === '') {
-                overlayConnexion.style.display = 'block';
-            } else {
-                overlayConnexion.style.display = 'none';
-            }
+            toggleOverlay(overlayConnexion);
         });
     }
 
     if (btnToggleCompte) {
         btnToggleCompte.addEventListener('click', function () {
-            if (overlayCompte.style.display === 'none' || overlayCompte.style.display === '') {
-                overlayCompte.style.display = 'block';
-            } else {
-                overlayCompte.style.display = 'none';
-            }
+            toggleOverlay(overlayCompte);
         });
     }
 });
