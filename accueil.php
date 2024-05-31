@@ -1,3 +1,6 @@
+<?php
+session_start(); // Démarrer la session
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +18,22 @@
               /></div>
         <nav>
             <ul>
-                <li><a href="accueil.html">Accueil</a></li>
-                <li><a href="toutParcourir.html">Tout parcourir</a></li>
+                <li><a href="accueil.php">Accueil</a></li>
+                <li><a href="#">Tout parcourir</a></li>
                 <li><a href="#">Recherche</a></li>
                 <li><a href="rdv.html">Rendez-vous</a></li>
-                <li><a href="#" class="btn_toggle_connexion">Connexion</a></li>
+                <?php
+                if (isset($_SESSION['user_id'])) {
+                    echo '<li><a href="#" class="btn_toggle_compte">'.$_SESSION['user_id'].'</a></li>';
+                } else {
+                    echo '<li><a href="#" class="btn_toggle_connexion">Connexion</a></li>';
+                }
+                ?>
             </ul>
         </nav>
     </header>
+    
+    <!-- Formulaire  -->
     <form method="post" action="connexion.php">
         <div id="overlay_connexion">
             <h1>CONNEXION</h1>
@@ -40,6 +51,24 @@
             <p>Mot de passe oublié ?</p>
         </div>
     </form>
+    <form method="post" action="connexion.php">
+        <div id="overlay_compte">
+            <h1>CONNEXION</h1>
+            <div class="log">
+                <h2>EMAIL</h2>
+                <input class="input_log" type="text" placeholder="Entrer votre identifiant" name="id" required="required">
+                <div class="lg_log"></div>
+            </div>
+            <div class="log">
+                <h2>MOT DE PASSE</h2>
+                <input class="input_log" type="password" placeholder="Entrer votre mot de passe" required="required" name="password">
+                <div class="lg_log"></div>
+            </div>
+            <input value="Connexion" type ="submit" class="btn_connexion" name="login"></input>
+            <p>Mot de passe oublié ?</p>
+        </div>
+    </form>
+    
     
     <main class="container">
         <section class="hero">
@@ -87,6 +116,5 @@
             </div>
         </section>
     </main>
-    <script src="scripts2.js"></script>
 </body>
 </html>
