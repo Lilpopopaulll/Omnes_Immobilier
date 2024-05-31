@@ -68,8 +68,23 @@ nav ul li a:hover {
     transition: background-color 0.3s ease;
     margin-left: 20px; /* Add margin to the left of the button to separate from the previous element */
 }
+.btn_toggle_compte {
+    background-color: rgb(255, 255, 255); /* White background for the button */
+    color: #000000;
+    padding: 5px 10px;
+    margin-right: 60px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 20px; /* Add margin to the left of the button to separate from the previous element */
+}
 
 .btn_toggle_connexion:hover {
+    background-color: #e3bdf065;
+    color: white;
+}
+
+.btn_toggle_compte:hover {
     background-color: #e3bdf065;
     color: white;
 }
@@ -82,9 +97,10 @@ main {
 .hero {
     display: flex;
     position : relative;
-    top : 80px;
+    top : 10px;
+    width: 35%;
     margin-left : 50px;
-    text-align: left;
+    text-align: center;
     flex-direction: column;
     justify-content: left;
     height: 100vh;
@@ -92,31 +108,34 @@ main {
 }
 .hero .img-2 {
     display: block; /* Assurer que l'image est un bloc */
-    margin-left: 280px;
-    margin-bottom: 40px;
-    width: 4%; /* Ajuster la largeur pour rendre l'image plus petite */
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%; 
     height: auto; 
 }
 .hero h1 {
-    font-size: 3.4em;
-    margin: 0 0 20px 50px;
+    font-size: 2.7em;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     color: #fff; /* White for the main title */
 }
 
 .hero #lg {
     position : relative;
-    left : 170px;
+    margin-left: auto;
+    margin-right: auto;
     border: 1px solid rgba(48, 30, 110, 0.534);
-    width: 16%;
+    width: 50%;
 }   
 
 
 .hero p {
-    width : 23%;
-    font-size: 1.5em;
+    width : 80%;
+    font-size: 1.2em;
     text-align : center;
-    margin-top: 40px;
-    margin-left: 100px;
+    margin-left: auto;
+    margin-right: auto;
     color: #fff;
 }
 
@@ -228,8 +247,8 @@ main {
 /* Font import */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-#overlay_connexion {
-    
+#overlay_connexion{
+    display: none;
     position : absolute;
     color : white;
     top : 50px;
@@ -241,13 +260,27 @@ main {
     text-align : left;
     padding-left: 30px;
     padding-top: 50px;
-    
 }
+
+#overlay_compte {
+    display: none;
+    position : absolute;
+    color : white;
+    top : 50px;
+    left: 78%;
+    border-radius : 2px;
+    width: 20%;
+    height: 88%;
+    background-color: rgba(255, 255, 255, 0.3);
+    text-align : left;
+    padding-left: 30px;
+    padding-top: 50px;
+}
+
+
 #overlay_connexion h1 {
     margin-bottom: 40px;
 }
-
-
 
 .lg_log {
     position: relative;
@@ -270,6 +303,24 @@ main {
     font-size: 17px;
 
 }
+.btn_deconnexion {
+    z-index: 600;
+    width: 100%;
+    height: 30px;
+    border : none;
+    border-radius: 50px;
+    background-color: #fff;
+    position: relative;
+    top : 8%;
+    left: 25%;
+    font-weight: bold;
+    color : black;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 5px 20px;
+
+}
+
 
 .btn_connexion :hover {
     color : yellow;
@@ -286,6 +337,16 @@ main {
     color : rgba(77, 74, 69, 0.452)
 }
 
+.inscription {
+    position: relative;
+    top: 40%;
+    font-weight: bold;
+}
+.inscription a {
+    text-decoration: none;
+    color: rgba(197, 113, 183, 0.747);
+}
+
 input[type="text"]:focus,
 input[type="password"]:focus {
     outline: none; 
@@ -298,52 +359,4 @@ input[type="password"]:focus {
 }
 
 
-.arrow {
-    border-radius: 100%;
-    position: relative;
-    bottom : 8%;
-    width: 70px;
-    height: 70px;
-    background-color: #cc6495e5;
-    margin: auto;
- 
-}
 
-.down-arrow {
-    position: relative;
-    
-    width: 0;
-    height: 30px;
-    border: 2px solid;
-    border-radius: 2px;
-    margin: 0 auto; /* Centrer horizontalement */
-}
-
-.down-arrow:after {
-    content: " ";
-    position: absolute;
-    top: 12px;
-    left: 50%; /* Positionner au centre horizontalement */
-    transform: translateX(-50%) rotateZ(45deg); /* Déplacer de -50% de la largeur du parent */
-    width: 16px;
-    height: 16px;
-    border-bottom: 4px solid;
-    border-right: 4px solid;
-    border-radius: 4px;
-}
-
-@keyframes jumpInfinite {
-    0% {
-        margin-top: 0;
-    }
-    50% {
-        margin-top: 20px;
-    }
-    100% {
-        margin-top: 0;
-    }
-}
-
-.down-arrow {
-    animation: jumpInfinite 1.5s infinite;
-}

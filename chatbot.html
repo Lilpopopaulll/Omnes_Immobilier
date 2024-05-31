@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Immobilier</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            color: #FFFFFF;
+        }
+        .avenue-messenger {
+            position: relative;
+            width: 370px;
+            max-width: 100%;
+            height: 500px;
+            background: #1F1B24;
+            border-radius: 10px;
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #6A0DAD;
+        }
+        .menu {
+            display: flex;
+            justify-content: flex-end;
+            background: #6A0DAD;
+            padding: 10px;
+            color: white;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        .agent-face {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .agent.circle img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            background-color: #6A0DAD;
+            padding: 10px;
+        }
+        .chat {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            overflow: hidden;
+        }
+        .chat-title {
+            background: #6A0DAD;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #121212;
+        }
+        .message-box {
+            display: flex;
+            border-top: 1px solid #6A0DAD;
+        }
+        .message-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background: #1F1B24;
+            color: white;
+        }
+        .message-submit {
+            padding: 15px;
+            border: none;
+            background: #6A0DAD;
+            color: white;
+            cursor: pointer;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .message-personal {
+            text-align: right;
+            background: #6A0DAD;
+            color: white;
+            align-self: flex-end;
+        }
+        .message-bot {
+            text-align: left;
+            background: #1F1B24;
+            color: white;
+            align-self: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <section class="avenue-messenger">
+        <div class="menu">
+            <a href="#" title="Minimize">&mdash;</a>
+            <a href="#" title="End Chat">&#10005;</a>
+        </div>
+        <div class="agent-face">
+            <img class="agent circle" src="logo.png" alt="Logo de l'agence">
+        </div>
+        <div class="chat">
+            <div class="chat-title">
+                Agence Immobilière
+            </div>
+            <div class="messages">
+                <div class="messages-content" id="messages-content"></div>
+            </div>
+            <div class="message-box">
+                <textarea type="text" class="message-input" id="message-input" placeholder="Écrivez un message..."></textarea>
+                <button type="submit" class="message-submit" onclick="sendMessage()">Envoyer</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var messagesContainer = document.getElementById('messages-content');
+        var messageInput = document.getElementById('message-input');
+        var userName = '';
+        var userStage = 0;
+
+        var fakeResponses = {
+            'histoire': "Notre agence a été fondée en 2001 avec l'objectif de fournir les meilleurs services immobiliers de la région.",
+            'employés': "Nous avons une équipe dédiée de 10 professionnels, y compris des agents expérimentés comme Jean Dupont et Marie Curie.",
+            'appartement': "L'appartement numéro 123 est situé en centre-ville, avec 3 chambres, 2 salles de bain, et un grand salon.",
+            'maison': "La maison numéro 456 dispose d'un jardin spacieux, 4 chambres, et est proche des écoles."
+        };
+
+        function updateScrollbar() {
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function insertMessage(msg, sender) {
+            var messageElement = document.createElement('div');
+            messageElement.className = 'message ' + (sender === 'user' ? 'message-personal' : 'message-bot');
+            messageElement.textContent = msg;
+            messagesContainer.appendChild(messageElement);
+            updateScrollbar();
+        }
+
+        function sendMessage() {
+            var msg = messageInput.value.trim();
+            if (msg === '') return;
+            insertMessage('Vous: ' + msg, 'user');
+            messageInput.value = '';
+            setTimeout(function() {
+                botResponse(msg);
+            }, 1000);
+        }
+
+        function botResponse(msg) {
+            var response = '';
+            if (userStage === 0) {
+                response = "Bonjour! Bienvenue à notre agence immobilière. Comment puis-je vous appeler ?";
+                userStage++;
+            } else if (userStage === 1) {
+                userName = msg;
+                response = `Enchanté, ${userName}. Êtes-vous intéressé par un bien immobilier ? Si oui, une maison ou un appartement ?`;
+                userStage++;
+            } else if (userStage === 2) {
+                if (msg.toLowerCase().includes('maison')) {
+                    response = "Vous êtes intéressé par une maison. Pouvez-vous me donner le numéro de l'article ?";
+                    userStage++;
+                } else if (msg.toLowerCase().includes('appartement')) {
+                    response = "Vous êtes intéressé par un appartement. Pouvez-vous me donner le numéro de l'article ?";
+                    userStage++;
+                } else if (msg.toLowerCase().includes('employés') || msg.toLowerCase().includes('employe')) {
+                    response = fakeResponses.employés;
+                } else if (msg.toLowerCase().includes('histoire')) {
+                    response = fakeResponses.histoire;
+                } else {
+                    response = "Désolé, je ne comprends pas. Êtes-vous intéressé par une maison ou un appartement ?";
+                }
+            } else if (userStage === 3) {
+                if (fakeResponses[msg.toLowerCase()]) {
+                    response = fakeResponses[msg.toLowerCase()];
+                } else {
+                    response = "Je suis désolé, mais je n'ai pas d'informations sur cet article.";
+                }
+            } else {
+                response = "Désolé, je ne comprends pas votre demande.";
+            }
+            insertMessage('Bot: ' + response, 'bot');
+        }
+
+        document.querySelector('.message-submit').addEventListener('click', sendMessage);
+        messageInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+                e.preventDefault();
+            }
+        });
+
+        // Envoyer un message de bienvenue au démarrage
+        setTimeout(function() {
+            insertMessage('Bot: Bonjour! Bienvenue à notre agence immobilière. Comment puis-je vous appeler ?', 'bot');
+            userStage = 1;
+        }, 1000);
+    </script>
+</body>
+</html>
