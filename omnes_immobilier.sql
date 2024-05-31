@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 31 mai 2024 à 18:53
+-- Généré le : ven. 31 mai 2024 à 22:16
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `agents_immobilier` (
   `Numéro de téléphone` int NOT NULL,
   `ID` int NOT NULL AUTO_INCREMENT,
   `Spécialité` varchar(50) NOT NULL,
+  `Description` varchar(255) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -41,12 +42,12 @@ CREATE TABLE IF NOT EXISTS `agents_immobilier` (
 -- Déchargement des données de la table `agents_immobilier`
 --
 
-INSERT INTO `agents_immobilier` (`Nom_prenom`, `Courriel`, `Numéro de téléphone`, `ID`, `Spécialité`) VALUES
-('Dupont Marie', 'marie.dupont@exemple.com', 612345678, 1, 'Immobilier résidentiel'),
-('Martin Jean', 'jean.martin@exemple.com', 698765432, 2, 'Immobilier commercial'),
-('Bernard Sophie', 'sophie.bernard@exemple.com', 623456789, 3, 'Terrain'),
-('Moreau Pierre', 'pierre.moreau@exemple.com', 687654321, 4, 'Appartement à louer'),
-('Lefevre Emma', 'emma.lefevre@exemple.com', 654321098, 5, 'Appartement à louer');
+INSERT INTO `agents_immobilier` (`Nom_prenom`, `Courriel`, `Numéro de téléphone`, `ID`, `Spécialité`, `Description`) VALUES
+('Dupont Marie', 'marie.dupont@exemple.com', 612345678, 1, 'Immobilier résidentiel', ''),
+('Martin Jean', 'jean.martin@exemple.com', 698765432, 2, 'Immobilier commercial', ''),
+('Bernard Sophie', 'sophie.bernard@exemple.com', 623456789, 3, 'Terrain', ''),
+('Moreau Pierre', 'pierre.moreau@exemple.com', 687654321, 4, 'Appartement à louer', ''),
+('Lefevre Emma', 'emma.lefevre@exemple.com', 654321098, 5, 'Appartement à louer', '');
 
 -- --------------------------------------------------------
 
@@ -96,6 +97,28 @@ INSERT INTO `proprietes` (`ID_propriete`, `Agent_ID`, `Adresse`, `Ville`, `Prix`
 (3089, 3, '202 Rue Paradis', 'Marseille', 500000, 'paradis.jpg', 'à louer'),
 (4123, 4, '404 Rue de Metz', 'Toulouse', 650000, 'metz.jpg', 'à vendre'),
 (5176, 5, '606 Rue de France', 'Nice', 780000, 'rue_de_france.jpg', 'à vendre');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rdv`
+--
+
+DROP TABLE IF EXISTS `rdv`;
+CREATE TABLE IF NOT EXISTS `rdv` (
+  `ID_rdv` int NOT NULL AUTO_INCREMENT,
+  `Lundi` time NOT NULL,
+  `Mardi` time NOT NULL,
+  `Mercredi` time NOT NULL,
+  `Jeudi` time NOT NULL,
+  `Vendredi` time NOT NULL,
+  `Samedi` time NOT NULL,
+  `ID_agent` int DEFAULT NULL,
+  `Specialites_agent` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`ID_rdv`),
+  KEY `fk_agent` (`ID_agent`),
+  KEY `fk_specialite` (`Specialites_agent`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
