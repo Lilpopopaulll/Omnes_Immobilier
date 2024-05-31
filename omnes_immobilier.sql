@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 31 mai 2024 à 22:16
+-- Généré le : ven. 31 mai 2024 à 22:31
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -113,12 +113,45 @@ CREATE TABLE IF NOT EXISTS `rdv` (
   `Jeudi` time NOT NULL,
   `Vendredi` time NOT NULL,
   `Samedi` time NOT NULL,
-  `ID_agent` int DEFAULT NULL,
-  `Specialites_agent` varchar(50) DEFAULT NULL,
+  `ID_user` int DEFAULT NULL,
   PRIMARY KEY (`ID_rdv`),
-  KEY `fk_agent` (`ID_agent`),
-  KEY `fk_specialite` (`Specialites_agent`)
+  KEY `fk_user` (`ID_user`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `mdp` varchar(255) NOT NULL,
+  `permission` int NOT NULL,
+  `adresse` varchar(255) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `prenom` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `mdp`, `permission`, `adresse`, `nom`, `prenom`) VALUES
+(1, '1234', 3, '', '', ''),
+(2, '', 0, '', '', ''),
+(3, 'de', 0, 'de', 'de', 'de'),
+(4, 'de', 0, 'dede', 'de', 'dedd'),
+(5, 'dzdz', 0, 'dzdz', 'dzd', 'dzd'),
+(6, 'dz', 0, 'dz', 'dz', 'dzdz'),
+(7, 'de', 0, 'de', 'de', 'Evan'),
+(8, 'fe', 0, 'fe', 'fe', 'efe'),
+(9, '1234', 0, 'Theo', 'de', 'Theo'),
+(10, '1234', 0, 'Evan', 'de', 'Evan'),
+(11, 'dede', 0, 'de', 'de', 'Evan'),
+(12, '1234', 0, 'de', 'de', 'Herve');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
