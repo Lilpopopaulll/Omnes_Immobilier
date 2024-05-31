@@ -9,7 +9,7 @@ html, body {
 }
 
 .container {
-    background-image: url("bg_parcourir.jpg");
+    background-image: url("../images/bg_parcourir.jpg");
     width: 100%;
     height: 1500px; /* Ajustez cette valeur en fonction de la hauteur souhaitée pour le défilement */
     background-size: contain; /* Adapte l'image à la taille de l'écran */

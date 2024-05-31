@@ -7,7 +7,7 @@ session_start(); // Démarrer la session
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Omnes Immobilier</title>
-    <link rel="stylesheet" href="accueil.css">
+    <link rel="stylesheet" href="./styles/accueil.css">
     <script src="script.js"></script>
 </head>
 <body>

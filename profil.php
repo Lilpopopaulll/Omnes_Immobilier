@@ -17,17 +17,16 @@ if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 
     // Récupérer les informations de l'utilisateur
-    $sql = "SELECT prenom, nom, adresse FROM users WHERE id = '$user_id'";
-    $result = mysqli_query($db_handle, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        $user_info = mysqli_fetch_assoc($result);
-        $prenom = $user_info['prenom'];
-        $nom = $user_info['nom'];
-        $adresse = $user_info['adresse'];
-    } else {
-        echo "Aucune information trouvée pour l'utilisateur.";
-    }
+    $sql = "SELECT prenom, nom, adresse, permission FROM users WHERE id = '$user_id'";
+    $result = mysqli_query($db_handle, $sql);                if (mysqli_num_rows($result) > 0) {
+                    $user_info = mysqli_fetch_assoc($result);
+                    $prenom = $user_info['prenom'];
+                    $nom = $user_info['nom'];
+                    $adresse = $user_info['adresse'];
+                    $permission = $user_info['permission']; // Nouvelle ligne pour récupérer la permission
+                } else {
+                    echo "Aucune information trouvée pour l'utilisateur.";
+                }
 
     // Fermeture de la connexion à la base de données
     mysqli_close($db_handle);
@@ -41,7 +40,7 @@ if (isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="profil.css">
+    <link rel="stylesheet" href="./styles/profil.css">
     <script src="script.js"></script>
     <title>Profile</title>
 </head>
@@ -83,6 +82,16 @@ if (isset($_SESSION['user_id'])) {
                 <p><?php echo htmlspecialchars($nom); ?></p>
                 <h3>Adresse</h3>
                 <p><?php echo htmlspecialchars($adresse); ?></p>
+                <h3>Statut</h3>
+                <p><?php 
+                if ($permission == 1) {
+                    echo "Utilisateur";
+                } else if($permission == 2) {
+                    echo "Agent";
+                } else if ($permission ==3) {
+                    echo "Administrateur";
+                }
+               ?>
             </div>
         </div>
     </div>
