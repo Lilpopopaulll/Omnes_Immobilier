@@ -19,7 +19,7 @@ session_start(); // Démarrer la session
         <nav>
             <ul>
                 <li><a href="accueil.php">Accueil</a></li>
-                <li><a href="#">Tout parcourir</a></li>
+                <li><a href="toutParcourir.html">Tout parcourir</a></li>
                 <li><a href="#">Recherche</a></li>
                 <li><a href="rdv.html">Rendez-vous</a></li>
                 <?php
@@ -38,7 +38,7 @@ session_start(); // Démarrer la session
         <div id="overlay_connexion">
             <h1>CONNEXION</h1>
             <div class="log">
-                <h2>EMAIL</h2>
+                <h2>IDENTIFIANT</h2>
                 <input class="input_log" type="text" placeholder="Entrer votre identifiant" name="id" required="required">
                 <div class="lg_log"></div>
             </div>
@@ -49,11 +49,16 @@ session_start(); // Démarrer la session
             </div>
             <input value="Connexion" type ="submit" class="btn_connexion" name="login"></input>
             <p>Mot de passe oublié ?</p>
+            <div class="inscription">
+                <p>Pas encore de compte ? <a href="inscription.php">S'inscrire</a></p>
+            </div>
         </div>
     </form>
     <form method="post" action="connexion.php">
         <div id="overlay_compte">
-            <h1>CONNEXION</h1>
+            <?php
+            echo '<h1>'.$_SESSION['user_id'].'<h1>';
+            ?>
             <div class="log">
                 <h2>EMAIL</h2>
                 <input class="input_log" type="text" placeholder="Entrer votre identifiant" name="id" required="required">
@@ -64,8 +69,7 @@ session_start(); // Démarrer la session
                 <input class="input_log" type="password" placeholder="Entrer votre mot de passe" required="required" name="password">
                 <div class="lg_log"></div>
             </div>
-            <input value="Connexion" type ="submit" class="btn_connexion" name="login"></input>
-            <p>Mot de passe oublié ?</p>
+            <a href="deconnexion.php" class="btn_deconnexion">Deconnexion</a>
         </div>
     </form>
     
@@ -80,9 +84,7 @@ session_start(); // Démarrer la session
             <div id="lg"></div>
             <p>Trouver le bien de vos rêves grâce à notre sélection unique en son genre et nos agents.</p>
         </section>
-        <div class="arrow">
-            <div class="down-arrow"></div>
-        </div>
+        
         <div class="separation"></div>
         <section class="features">
             <div class="feature">
