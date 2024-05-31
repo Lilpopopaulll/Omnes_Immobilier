@@ -1,53 +1,89 @@
-<?php
-// Connexion à la base de données
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
-$dbname = "omnes_immobilier";
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations de l'Agent</title>
+    <link rel="stylesheet" type="text/css" href="infoAgent.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" class="img-2" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="btn_toggle_connexion">Connexion</div>
+        <div class="btn_toggle_compte">Créer un compte</div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Informations de l'Agent Immobilier</h1>
+            <?php
+            // Connexion à la base de données
+            $servername = "127.0.0.1";
+            $username = "root";
+            $password = "";
+            $dbname = "omnes_immobilier";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+            $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Vérifier la connexion
-if ($conn->connect_error) {
-    die("La connexion a échoué: " . $conn->connect_error);
-}
+            // Vérifier la connexion
+            if ($conn->connect_error) {
+                die("La connexion a échoué: " . $conn->connect_error);
+            }
 
-// Récupérer l'ID de la propriété à partir de l'URL
-$property_id = intval($_GET['ID_propriete']);
+            // Vérifier si l'ID de la propriété est défini
+            if (isset($_GET['ID_propriete'])) {
+                $property_id = intval($_GET['ID_propriete']);
 
-// Préparer la requête SQL
-$sql = "SELECT 
-            a.`Nom_prenom`, 
-            a.`Courriel`, 
-            a.`Numéro de téléphone`, 
-            a.`Spécialité`
-        FROM 
-            `proprietes` p
-        JOIN 
-            `agents_immobilier` a 
-        ON 
-            p.`Agent_ID` = a.`ID`
-        WHERE 
-            p.`ID_propriete` = ?";
+                // Préparer la requête SQL
+                $sql = "SELECT 
+                            a.`Nom_prenom`, 
+                            a.`Courriel`, 
+                            a.`Numéro de téléphone`, 
+                            a.`Spécialité`
+                        FROM 
+                            `proprietes` p
+                        JOIN 
+                            `agents_immobilier` a 
+                        ON 
+                            p.`Agent_ID` = a.`ID`
+                        WHERE 
+                            p.`ID_propriete` = ?";
 
-// Préparer et exécuter la requête
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $property_id);
-$stmt->execute();
-$result = $stmt->get_result();
+                // Préparer et exécuter la requête
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("i", $property_id);
+                $stmt->execute();
+                $result = $stmt->get_result();
 
-// Afficher les résultats
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        echo "Nom: " . $row["Nom_prenom"]. "<br>";
-        echo "Courriel: " . $row["Courriel"]. "<br>";
-        echo "Numéro de téléphone: " . $row["Numéro de téléphone"]. "<br>";
-        echo "Spécialité: " . $row["Spécialité"]. "<br>";
-    }
-} else {
-    echo "0 résultats";
-}
+                // Afficher les résultats
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo "<div class='agent-info'>";
+                        echo "<p><strong>Nom:</strong> " . $row["Nom_prenom"]. "</p>";
+                        echo "<p><strong>Courriel:</strong> " . $row["Courriel"]. "</p>";
+                        echo "<p><strong>Numéro de téléphone:</strong> " . $row["Numéro de téléphone"]. "</p>";
+                        echo "<p><strong>Spécialité:</strong> " . $row["Spécialité"]. "</p>";
+                        echo "</div>";
+                    }
+                } else {
+                    echo "<p>0 résultats</p>";
+                }
+            } else {
+                echo "<p>ID de propriété non spécifié.</p>";
+            }
 
-// Fermer la connexion
-$conn->close();
-?>
+            // Fermer la connexion
+            $conn->close();
+            ?>
+        </div>
+    </main>
+</body>
+</html>

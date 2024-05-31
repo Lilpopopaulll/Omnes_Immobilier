@@ -1,0 +1,113 @@
+/* infoAgent.css */
+html, body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    height: 100%;
+    overflow-x: hidden;
+    background-image: url("bg_agent.jpg"); /* Image de fond */
+    background-size: cover; /* Adapte l'image à la taille de l'écran */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    background-position: center; /* Centre l'image dans le conteneur */
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.1); /* Presque entièrement transparent */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo .img-2 {
+    width: 20%;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white; /* White color for links */
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffcc00; /* Hover color for links */
+}
+
+.btn_toggle_connexion {
+    background-color: rgb(255, 255, 255); /* White background for the button */
+    color: #000000;
+    padding: 5px 10px;
+    margin-right: 60px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 20px; /* Add margin to the left of the button to separate from the previous element */
+}
+.btn_toggle_compte {
+    background-color: rgb(255, 255, 255); /* White background for the button */
+    color: #000000;
+    padding: 5px 10px;
+    margin-right: 60px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 20px; /* Add margin to the left of the button to separate from the previous element */
+}
+
+.btn_toggle_connexion:hover {
+    background-color: #e3bdf065;
+    color: white;
+}
+
+.btn_toggle_compte:hover {
+    background-color: #e3bdf065;
+    color: white;
+}
+
+main {
+    padding-top: 100px; /* Adjusted padding for fixed header */
+    text-align: center;
+}
+
+h1 {
+    color: white; /* Texte du titre en blanc */
+}
+
+.agent-info {
+    background-color: rgba(255, 255, 255, 0.8); /* Fond blanc semi-transparent pour la section des informations */
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.agent-info p {
+    margin: 10px 0;
+}
+
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
