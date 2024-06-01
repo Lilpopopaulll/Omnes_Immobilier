@@ -76,7 +76,7 @@ nav ul li {
 nav ul li a {
     color: white; /* White color for links */
     text-decoration: none;
-    font-size: 1em;
+    font-size: 1.7em;
     transition: color 0.3s ease;
 }
 
