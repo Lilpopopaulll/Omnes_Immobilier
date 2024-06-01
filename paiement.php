@@ -48,6 +48,8 @@ $conn->close();
 $message = "";
 $is_success = null; // Pour savoir si la transaction a réussi ou échoué
 $missing_fields = [];
+$assurance_selected = isset($_POST['assurance']) && $_POST['assurance'] == 'yes';
+$credit_selected = isset($_POST['credit']) && $_POST['credit'] == 'yes';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Vérifier les champs manquants
@@ -77,6 +79,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
+
+$total_with_assurance = $total;
+if ($assurance_selected) {
+    $total_with_assurance += $total * 0.02; // Ajouter 2% du total pour l'assurance immobilier
+}
+
+$mensualite = 0;
+if ($credit_selected) {
+    $mensualite = ($total_with_assurance / 48) * 1.01; // Ajouter 1% du prix par mois
+}
 ?>
 
 <!DOCTYPE html>
@@ -85,6 +97,55 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Page de Paiement</title>
     <link rel="stylesheet" type="text/css" href="paiement.css">
     <script>
+        function updateTotalWithAssuranceAndCredit() {
+            const totalElement = document.getElementById('total');
+            const totalWithAssuranceElement = document.getElementById('total-with-assurance');
+            const assuranceCheckbox = document.getElementById('assurance');
+            const creditCheckbox = document.getElementById('credit');
+            const mensualiteElement = document.getElementById('mensualite');
+
+            let total = parseFloat(totalElement.getAttribute('data-total'));
+            if (assuranceCheckbox.checked) {
+                total += total * 0.02; // Ajouter 2% du total pour l'assurance immobilier
+            }
+
+            totalWithAssuranceElement.textContent = '€' + total.toLocaleString('fr-FR', { minimumFractionDigits: 0 });
+
+            if (creditCheckbox.checked) {
+                let mensualite = (total / 48) * 1.01; // Ajouter 1% du prix par mois
+                mensualiteElement.textContent = '€' + mensualite.toLocaleString('fr-FR', { minimumFractionDigits: 0 });
+            } else {
+                mensualiteElement.textContent = '';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const assuranceCheckbox = document.getElementById('assurance');
+            const creditCheckbox = document.getElementById('credit');
+
+            assuranceCheckbox.addEventListener('change', function() {
+                updateTotalWithAssuranceAndCredit();
+                const assuranceInfo = document.getElementById('assurance-info');
+                if (assuranceCheckbox.checked) {
+                    assuranceInfo.style.display = 'block';
+                } else {
+                    assuranceInfo.style.display = 'none';
+                }
+            });
+
+            creditCheckbox.addEventListener('change', function() {
+                updateTotalWithAssuranceAndCredit();
+                const creditInfo = document.getElementById('credit-info');
+                if (creditCheckbox.checked) {
+                    creditInfo.style.display = 'block';
+                } else {
+                    creditInfo.style.display = 'none';
+                }
+            });
+
+            updateTotalWithAssuranceAndCredit(); // Initial call to set the total with assurance if the checkbox is checked
+        });
+
         function simulateLoading() {
             document.getElementById('loading').style.display = 'block';
             setTimeout(function() {
@@ -122,6 +183,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <p><strong>Prix :</strong> €<?php echo number_format($prix, 0, ',', ' '); ?></p>
                 <p><strong>Frais de l'agence :</strong> €<?php echo number_format($frais_agence, 0, ',', ' '); ?></p>
                 <p><strong>Total :</strong> €<?php echo number_format($total, 0, ',', ' '); ?></p>
+                <input type="hidden" id="total" data-total="<?php echo $total; ?>">
+                <label for="assurance">Assurance Immobilière proposée par Omnes Immobilier :</label>
+                <input type="checkbox" id="assurance" name="assurance" value="yes" form="paymentForm" <?php echo $assurance_selected ? 'checked' : ''; ?>>
+                <div id="assurance-info" style="display: <?php echo $assurance_selected ? 'block' : 'none'; ?>;">
+                    <h3>Agence d'Assurance</h3>
+                    <p><strong>Nom:</strong> AssureTout Immobilier</p>
+                    <p><strong>Email:</strong> contact@assuretout.com</p>
+                    <p><strong>Téléphone:</strong> 01 24 73 73 73</p>
+                    <p><strong>Personne à contacter:</strong> Jean Darme</p>
+                </div>
+                <p><strong>Total avec Assurance :</strong> <span id="total-with-assurance">€<?php echo number_format($total_with_assurance, 0, ',', ' '); ?></span></p>
+                <label for="credit">Prêt Immobilier :</label>
+                <input type="checkbox" id="credit" name="credit" value="yes" form="paymentForm" <?php echo $credit_selected ? 'checked' : ''; ?>>
+                <div id="credit-info" style="display: <?php echo $credit_selected ? 'block' : 'none'; ?>;">
+                    <h3>Banque de Prêt</h3>
+                    <p><strong>Nom:</strong> Banque Immo</p>
+                    <p><strong>Email:</strong> contact@banqueimmo.com</p>
+                    <p><strong>Téléphone:</strong> 02 98 76 54 32</p>
+                    <p><strong>Personne à contacter:</strong> Martin Wyks</p>
+                    <p><strong>Info:</strong> Taux d'intérêt de 1%, remboursable en 48 mois.</p>
+                    <p><strong>Remboursement / Mensualité :</strong> <span id="mensualite">€<?php echo number_format($mensualite, 0, ',', ' '); ?></span> sur 48 mois</p>
+                </div>
             </div>
         </div>
         <div class="right-column">
