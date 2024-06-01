@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Recherche</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?real-estate') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        .search-form-wrapper {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .category-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .category-buttons button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px; /* Espacement entre les boutons */
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+        .category-buttons button.active {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 3px;
+        }
+        .category-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .search-form {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8); /* Couleur de fond plus sombre */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            padding: 10px 20px;
+            align-items: center;
+            justify-content: space-between;
+            color: #fff; /* Couleur du texte en blanc pour contraste */
+        }
+        .fields-container {
+            display: flex;
+            width: 100%;
+        }
+        .field {
+            flex: 1;
+            margin: 0 5px;
+        }
+        .field label {
+            display: none;
+        }
+        .field input, .field select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+            color: #333;
+        }
+        .field select2-container--default .select2-selection--single {
+            height: 40px;
+            border: 1px solid #ccc;
+        }
+        .field select2-container--default .select2-selection--multiple {
+            min-height: 40px;
+            border: 1px solid #ccc;
+        }
+        .field .select2-selection__rendered {
+            line-height: 40px;
+        }
+        .field .select2-selection__choice {
+            margin: 5px 0;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 3px;
+        }
+        .field button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #6f42c1; /* Couleur du bouton mauve */
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .field button:hover {
+            background-color: #563d7c; /* Couleur du bouton au survol */
+        }
+    </style>
+</head>
+<body>
+<div class="overlay"></div>
+<div class="search-form-wrapper">
+    <div class="category-buttons">
+        <button type="button" id="btn-buy" class="active" onclick="setCategory('Acheter')">Acheter</button>
+        <button type="button" id="btn-rent" onclick="setCategory('Louer')">Louer</button>
+    </div>
+    <div class="search-form">
+        <form id="search-form">
+            <div class="fields-container">
+                <div class="field">
+                    <select id="search-sector" name="search_sector">
+                        <option value="" disabled selected>Paris et Ouest parisien</option>
+                        <optgroup label="Paris et Ouest parisien">
+                            <option value="Paris">Paris</option>
+                            <option value="Ouest parisien">Ouest parisien</option>
+                        </optgroup>
+                        <optgroup label="France">
+                            <option value="Provence et Littoral">Provence et Littoral</option>
+                            <option value="Deauville et côte normande">Deauville et côte normande</option>
+                        </optgroup>
+                        <optgroup label="International">
+                            <option value="International">International</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="field">
+                    <input type="text" id="search-reference" name="search_reference" placeholder="Code postal, ville">
+                </div>
+                <div class="field">
+                    <select id="search-type" name="search_type">
+                        <option value="" disabled selected>Maison ou Appartement</option>
+                        <option value="Maison">Maison</option>
+                        <option value="Appartement">Appartement</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <select id="search-bedroom" name="search_bedroom[]">
+                        <option value="" disabled selected>Chambres</option>
+                        <option value="Studio">Studio</option>
+                        <option value="1 chambre">1 chambre</option>
+                        <option value="2 chambres">2 chambres</option>
+                        <option value="3 chambres">3 chambres</option>
+                        <option value="4 chambres">4 chambres</option>
+                        <option value="5 chambres et +">5 chambres et +</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <input type="text" id="search-area-min" name="search_area_min" placeholder="Surface min m²">
+                </div>
+                <div class="field">
+                    <input type="text" id="search-price-max" name="search_price_max" placeholder="Budget max €">
+                </div>
+                <div class="field">
+                    <button type="submit" id="search-submit">Rechercher</button>
+                </div>
+                <input type="hidden" id="search-category" name="search_category" value="Acheter">
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#search-sector').select2();
+        $('#search-bedroom').select2();
+        $('#search-type').select2();
+    });
+
+    function setCategory(category) {
+        document.getElementById('search-category').value = category;
+        document.getElementById('btn-buy').classList.remove('active');
+        document.getElementById('btn-rent').classList.remove('active');
+        if (category === 'Acheter') {
+            document.getElementById('btn-buy').classList.add('active');
+        } else {
+            document.getElementById('btn-rent').classList.add('active');
+        }
+    }
+</script>
+
+</body>
+</html>
