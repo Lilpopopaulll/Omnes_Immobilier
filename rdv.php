@@ -28,12 +28,14 @@ if (isset($_SESSION['user_id'])) {
                     echo "Aucune information trouvée pour l'utilisateur.";
                 }
 
-    // Fermeture de la connexion à la base de données
+    // Requête pour récupérer tous les rendez-vous de l'utilisateur
+    $sql = "SELECT * FROM rdv WHERE ID_user = $user_id";
+    $result = $db_handle->query($sql);
     
+    // Fermeture de la connexion à la base de données
+    mysqli_close($db_handle);
 } 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,27 +79,27 @@ if (isset($_SESSION['user_id'])) {
         
         <div class="calendrier_container">
             <?php
-            // Requête pour récupérer tous les rendez-vous de l'utilisateur
-            $sql = "SELECT * FROM rdv WHERE ID_user = $user_id";
-            $result = $db_handle->query($sql);
-            
-            if ($result->num_rows > 0) {
-                // Affichage des rendez-vous
+            if ($result && $result->num_rows > 0) {
+                // Affichage des rendez-vous dans un tableau
                 echo "<h2>Rendez-vous de l'utilisateur :</h2>";
-                echo "<ul>";
+                echo "<table>";
+                echo "<tr><th>Jour</th><th>Heure</th><th>Action</th></tr>";
                 while($row = $result->fetch_assoc()) {
                     foreach($row as $day => $time) {
                         if ($day !== 'ID_rdv' && $day !== 'ID_user' && $time !== null) {
-                            echo "<li>Rendez-vous le $day à $time</li>";
+                            echo "<tr>";
+                            echo "<td>$day</td>";
+                            echo "<td>$time</td>";
+                            echo '<td><form action="annulation.php" method="post"><a href="deconnexion.php" class="btn_deconnexion">Deconnexion</a>
+                            <input type="hidden" name="rdv_id" value="'.$row['ID_rdv'].'"><button type="submit">Annuler</button></form></td>';
+                            echo "</tr>";
                         }
                     }
                 }
-                echo "</ul>";
+                echo "</table>";
             } else {
                 echo "Aucun rendez-vous trouvé pour cet utilisateur.";
             }
-            
-            mysqli_close($db_handle);
             ?>
         </div>
     </main>

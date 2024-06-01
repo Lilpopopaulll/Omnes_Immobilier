@@ -323,7 +323,7 @@ main {
 
 .inscription {
     position: relative;
-    top: 40%;
+    top: 20%;
     font-weight: bold;
 }
 .inscription a {
@@ -340,6 +340,7 @@ input[type="password"]:focus {
     top : 50px;
     right: 30px;
     text-align: center;
+    font-size: 14px;
 }
 
 

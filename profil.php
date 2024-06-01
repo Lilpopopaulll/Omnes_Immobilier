@@ -39,7 +39,7 @@ if (isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/profil.css">
     <script src="script.js"></script>
-    <title>Profile</title>
+    <title>Profil</title>
 </head>
 <body>
     <header>
