@@ -351,12 +351,12 @@ h2 {
   height: 30px;
   border : none;
   border-radius: 50px;
-  background-color: #fff;
+  background-color: #ffffff;
   position: relative;
   top : 8%;
   left: 25%;
   font-weight: bold;
-  color : black;
+  color : rgb(0, 0, 0);
   font-size: 17px;
   text-decoration: none;
   padding: 5px 20px;

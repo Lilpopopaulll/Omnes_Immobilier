@@ -181,5 +181,20 @@ main {
 }
 
 .calendrier_container td button:hover {
-    background-color: #ff1a1a;
+    background-color: #eb3636;
 }
+
+.btn_deconnexion {
+    z-index: 600;
+    width: 30%;
+    height: 30px;
+    border : none;
+    border-radius: 50px;
+    position: relative;
+    
+    font-weight: bold;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 5px 20px;
+  
+  }
