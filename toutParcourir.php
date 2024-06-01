@@ -1,7 +1,6 @@
 <?php
-session_start(); // Démarrer la session
+session_start(); 
 
-// Connectez-vous à votre base de données
 $database = "omnes_immobilier";
 $db_handle = mysqli_connect('localhost', 'root', '', $database);
 
@@ -9,16 +8,16 @@ if (!$db_handle) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Vérifier si l'utilisateur est connecté
+
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
-    // Récupérer les informations de l'utilisateur
+  
     $sql = "SELECT prenom, nom, adresse, permission FROM users WHERE id = '$user_id'";
     $result = mysqli_query($db_handle, $sql);                
     if (mysqli_num_rows($result) > 0) {
                     $user_info = mysqli_fetch_assoc($result);
                     $prenom = $user_info['prenom'];   
-                    $permission = $user_info['permission']; // Nouvelle ligne pour récupérer la permission
+                    $permission = $user_info['permission']; 
                 } else {
                     echo "Aucune information trouvée pour l'utilisateur.";
                 }
@@ -34,6 +33,7 @@ if (isset($_SESSION['user_id'])) {
     <title>Omnes Immobilier</title>
     <link rel="stylesheet" href="./styles/toutParcourir.css">
     <script src="script.js"></script>
+    <script src="infoPropriete.js"></script>
 </head>
 <body>
     <header>
@@ -91,24 +91,28 @@ if (isset($_SESSION['user_id'])) {
     </main>
 
     <div class="container_propriete">
-        <?php 
-        // Sélectionner les catégories
+    <?php 
+
         $categories = array("Immobilier résidentiel", "Immobilier commercial", "Terrain", "Appartement à louer");
 
         foreach ($categories as $category) {
             echo "<h2>$category</h2>";
 
-            // Récupérer les informations des propriétés pour cette catégorie
-            $sql = "SELECT url_image, Prix, Nom FROM proprietes WHERE Categorie='$category'";
+            $sql = "SELECT url_image, Prix, Nom, Statut, Adresse, Ville, ID_propriete, Detail FROM proprietes WHERE Categorie='$category'";
             $result = mysqli_query($db_handle, $sql);
 
             if (mysqli_num_rows($result) > 0) {
                 echo '<div class="annonces-container">';
                 
-                // Afficher les données de chaque propriété
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<div class="annonce">';
-                    echo '<img src="' . htmlspecialchars($row["url_image"]) . '" alt="' . htmlspecialchars($row["Nom"]) . '">';
+                    echo '<img src="' . htmlspecialchars($row["url_image"]) . '" alt="' . htmlspecialchars($row["Nom"]) . '" ' .
+                        'data-prix="' . htmlspecialchars($row["Prix"]) . '" ' .
+                        'data-statut="' . htmlspecialchars($row["Statut"]) . '" ' .
+                        'data-adresse="' . htmlspecialchars($row["Adresse"]) . '" ' .
+                        'data-ville="' . htmlspecialchars($row["Ville"]) . '" ' .
+                        'data-id-propriete="' . htmlspecialchars($row["ID_propriete"]) . '" ' .
+                        'data-detail="' . htmlspecialchars($row["Detail"]) . '">';
                     echo '<h3>' . htmlspecialchars($row["Nom"]) . '</h3>';
                     echo '<p>Prix: ' . htmlspecialchars($row["Prix"]) . ' €</p>';
                     echo '</div>';
@@ -116,41 +120,20 @@ if (isset($_SESSION['user_id'])) {
                 
                 echo '</div>';
             } else {
-                echo '<div class="no-properties">Aucune propriété trouvée dans la catégorie ' . $category . '.</div>';            }
+                echo '<div class="no-properties">Aucune propriété trouvée dans la catégorie ' . $category . '.</div>';            
+            }
         }
         ?>
+
+
+
         
     </div>
     <div id="overlay_detail">
         <div class="detail-container" id="property_details">
-            <!-- Les détails de la propriété seront remplis ici par JavaScript -->
+            
         </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var images = document.querySelectorAll(".annonce img");
-
-            images.forEach(function(image) {
-                image.addEventListener("click", function() {
-                    // Récupérer les informations de la propriété correspondante
-                    var propertyDetails = this.parentNode.querySelector("p").innerText;
-
-                    // Afficher l'overlay avec les détails de la propriété
-                    document.getElementById("property_details").innerHTML = "<img src='" + this.src + "' alt='Property Image'><p>" + propertyDetails + "</p>";
-                    document.getElementById("overlay_detail").style.display = "block";
-                });
-            });
-
-            // Fermer l'overlay lorsque l'utilisateur clique à l'extérieur des détails de la propriété
-            document.getElementById("overlay_detail").addEventListener("click", function(event) {
-                if (event.target === this) {
-                    this.style.display = "none";
-                }
-            });
-        });
-    </script>
-
-
 </body>
 </html>
 
