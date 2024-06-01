@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Camille Leroy</Name>
+        <Address>33 Avenue de l'Immobilier, Lille, France</Address>
+        <Phone>+33 3 20 30 40 50</Phone>
+        <Email>camille.leroy@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Lille Immobilier</Company>
+            <Location>Lille, France</Location>
+            <StartDate>2021-06-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Gestion des transactions immobilières et des relations avec les clients.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Lille</Institution>
+        <Year>2020</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

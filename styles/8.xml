@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Sophie Dubois</Name>
+        <Address>78 Boulevard de l'Immobilier, Nantes, France</Address>
+        <Phone>+33 2 40 50 60 70</Phone>
+        <Email>sophie.dubois@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Nantes Immobilier</Company>
+            <Location>Nantes, France</Location>
+            <StartDate>2018-10-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Conseil et gestion des transactions immobilières pour les clients.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Nantes</Institution>
+        <Year>2017</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

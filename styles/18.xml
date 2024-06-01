@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Julie Morel</Name>
+        <Address>89 Rue de l'Agence, Metz, France</Address>
+        <Phone>+33 3 87 56 78 90</Phone>
+        <Email>julie.morel@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Metz Immobilier</Company>
+            <Location>Metz, France</Location>
+            <StartDate>2021-09-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Accompagnement des clients dans l'achat et la vente de propriétés.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Metz</Institution>
+        <Year>2020</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

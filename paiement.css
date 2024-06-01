@@ -1,0 +1,153 @@
+/* paiement.css */
+html, body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background-image: url("bg_paiement.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 100px;
+    color: white;
+}
+
+.left-column, .right-column {
+    width: 45%;
+    background: rgba(255, 255, 255, 0.5); /* Less opaque background */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.left-column {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.property-info {
+    width: 100%;
+    display: inline-block;
+}
+
+.property-image {
+    width: calc(100% - 30px); /* 15px border on each side */
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+form {
+    color: black;
+}
+
+form h2 {
+    margin-top: 0;
+    color: black;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    text-align: left; /* Align labels to the left */
+    color: black;
+}
+
+form input[type="text"], form input[type="password"], form select, form input[type="submit"] {
+    width: calc(100% - 20px); /* Decrease width to add padding */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 0px; /* Offset to center inputs inside form */
+}
+
+form input[type="submit"] {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 0px; /* Center button inside form */
+}
+
+form input[type="submit"]:hover {
+    background-color: #004494;
+}
+
+/* Import de la police */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+#loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.centered-message {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+    color: black;
+    text-align: center;
+}
+
+.centered-message h1 {
+    margin-top: 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #004494;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    color: red;
+}
+
+.popup .btn {
+    margin-top: 10px;
+}

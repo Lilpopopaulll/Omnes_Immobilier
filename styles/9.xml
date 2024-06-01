@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Maxime Martin</Name>
+        <Address>22 Rue de la Vente, Rennes, France</Address>
+        <Phone>+33 2 23 45 67 89</Phone>
+        <Email>maxime.martin@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Rennes Immo</Company>
+            <Location>Rennes, France</Location>
+            <StartDate>2020-04-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Vente et location de biens immobiliers résidentiels et commerciaux.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Rennes</Institution>
+        <Year>2019</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

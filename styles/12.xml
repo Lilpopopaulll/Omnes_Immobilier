@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Laurent Morel</Name>
+        <Address>56 Rue de la Vente, Grenoble, France</Address>
+        <Phone>+33 4 76 12 34 56</Phone>
+        <Email>laurent.morel@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Grenoble Immobilier</Company>
+            <Location>Grenoble, France</Location>
+            <StartDate>2018-08-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Gestion des transactions immobilières et des relations clients.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Grenoble</Institution>
+        <Year>2017</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Thomas Leroy</Name>
+        <Address>78 Boulevard de l'Immobilier, Nice, France</Address>
+        <Phone>+33 4 93 12 34 56</Phone>
+        <Email>thomas.leroy@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Nice Properties</Company>
+            <Location>Nice, France</Location>
+            <StartDate>2017-07-01</StartDate>
+            <EndDate>2023-12-31</EndDate>
+            <Description>Assistance aux clients dans l'achat et la vente de biens immobiliers.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Nice</Institution>
+        <Year>2016</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Lucas Martin</Name>
+        <Address>1 Rue de la Liberté, Paris, France</Address>
+        <Phone>+33 1 23 45 67 89</Phone>
+        <Email>lucas.martin@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Immobilier Parisien</Company>
+            <Location>Paris, France</Location>
+            <StartDate>2018-01-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Gestion des ventes et des locations de biens immobiliers.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Paris</Institution>
+        <Year>2017</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Julien Bernard</Name>
+        <Address>56 Rue de l'Agence, Strasbourg, France</Address>
+        <Phone>+33 3 88 76 54 32</Phone>
+        <Email>julien.bernard@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Strasbourg Immo</Company>
+            <Location>Strasbourg, France</Location>
+            <StartDate>2019-09-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Assistance à la vente et à l'achat de propriétés immobilières.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Strasbourg</Institution>
+        <Year>2018</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

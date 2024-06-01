@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Valerie Durand</Name>
+        <Address>90 Rue de l'Agence, Clermont-Ferrand, France</Address>
+        <Phone>+33 4 73 12 34 56</Phone>
+        <Email>valerie.durand@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Clermont-Ferrand Immo</Company>
+            <Location>Clermont-Ferrand, France</Location>
+            <StartDate>2017-04-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Gestion des ventes et des locations de biens immobiliers.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université Clermont Auvergne</Institution>
+        <Year>2016</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>
