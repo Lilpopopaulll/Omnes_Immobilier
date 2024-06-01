@@ -15,12 +15,12 @@ if (isset($_SESSION['user_id'])) {
     $sql = "SELECT prenom, nom, adresse, permission FROM users WHERE id = '$user_id'";
     $result = mysqli_query($db_handle, $sql);                
     if (mysqli_num_rows($result) > 0) {
-                    $user_info = mysqli_fetch_assoc($result);
-                    $prenom = $user_info['prenom'];   
-                    $permission = $user_info['permission']; 
-                } else {
-                    echo "Aucune information trouvée pour l'utilisateur.";
-                }
+        $user_info = mysqli_fetch_assoc($result);
+        $prenom = $user_info['prenom'];   
+        $permission = $user_info['permission']; 
+    } else {
+        echo "Aucune information trouvée pour l'utilisateur.";
+    }
 }
 
 ?>
@@ -37,10 +37,7 @@ if (isset($_SESSION['user_id'])) {
 </head>
 <body>
     <header>
-        <div class="logo"><img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/3826d156db6da9ee77e8511101fa6d15a6ae3801acec3c890e54f920e581cdb7?"
-            class="img-2"
-              /></div>
+        <div class="logo"><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/3826d156db6da9ee77e8511101fa6d15a6ae3801acec3c890e54f920e581cdb7?" class="img-2"/></div>
         <nav>
             <ul>
                 <li><a href="accueil.php">Accueil</a></li>
@@ -82,10 +79,7 @@ if (isset($_SESSION['user_id'])) {
     
     <main class="container">
         <section class="hero">
-            <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/3826d156db6da9ee77e8511101fa6d15a6ae3801acec3c890e54f920e581cdb7?"
-          class="img-2"
-            />
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/3826d156db6da9ee77e8511101fa6d15a6ae3801acec3c890e54f920e581cdb7?" class="img-2"/>
             <h1>DECOUVREZ TOUTES NOS PROPRIETES</h1>     
         </section>
     </main>
@@ -105,6 +99,36 @@ if (isset($_SESSION['user_id'])) {
                 echo '<div class="annonces-container">';
                 
                 while ($row = mysqli_fetch_assoc($result)) {
+                    $propertyID = $row["ID_propriete"];
+                    // Récupérer les informations de l'agent en fonction de l'ID de la propriété
+                    $sql_agent = "SELECT a1, a2, a3, a4, a5 FROM liste_agents WHERE id= '$propertyID'";
+                    $result_agent = mysqli_query($db_handle, $sql_agent);
+                    $agent_info = mysqli_fetch_assoc($result_agent);
+
+
+                    $sql_nom = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a1']) . "'";
+                    $result_nom = mysqli_query($db_handle, $sql_nom);
+                    $agent_nom = mysqli_fetch_assoc($result_nom);
+
+                    $sql_nom1 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a2']) . "'";
+                    $result_nom1 = mysqli_query($db_handle, $sql_nom1);
+                    $agent_nom1 = mysqli_fetch_assoc($result_nom1);
+
+                    $sql_nom2 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a3']) . "'";
+                    $result_nom2 = mysqli_query($db_handle, $sql_nom2);
+                    $agent_nom2 = mysqli_fetch_assoc($result_nom2);
+
+                    $sql_nom3 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a4']) . "'";
+                    $result_nom3 = mysqli_query($db_handle, $sql_nom3);
+                    $agent_nom3 = mysqli_fetch_assoc($result_nom3);
+
+                    $sql_nom4 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a5']) . "'";
+                    $result_nom4 = mysqli_query($db_handle, $sql_nom4);
+                    $agent_nom4 = mysqli_fetch_assoc($result_nom4);
+
+
+                    
+
                     echo '<div class="annonce">';
                     echo '<img src="' . htmlspecialchars($row["url_image"]) . '" alt="' . htmlspecialchars($row["Nom"]) . '" ' .
                         'data-prix="' . htmlspecialchars($row["Prix"]) . '" ' .
@@ -112,9 +136,15 @@ if (isset($_SESSION['user_id'])) {
                         'data-adresse="' . htmlspecialchars($row["Adresse"]) . '" ' .
                         'data-ville="' . htmlspecialchars($row["Ville"]) . '" ' .
                         'data-id-propriete="' . htmlspecialchars($row["ID_propriete"]) . '" ' .
-                        'data-detail="' . htmlspecialchars($row["Detail"]) . '">';
+                        'data-detail="' . htmlspecialchars($row["Detail"]) . '"'.
+                        'data-a1="' . htmlspecialchars($agent_nom["Nom_prenom"]) . '"'.
+                        'data-a2="' . htmlspecialchars($agent_nom1["Nom_prenom"]) . '"'.
+                        'data-a3="' . htmlspecialchars($agent_nom2["Nom_prenom"]) . '"'.
+                        'data-a4="' . htmlspecialchars($agent_nom3["Nom_prenom"]) . '"'.
+                        'data-a5="' . htmlspecialchars($agent_nom4["Nom_prenom"]) . '">';
                     echo '<h3>' . htmlspecialchars($row["Nom"]) . '</h3>';
                     echo '<p>Prix: ' . htmlspecialchars($row["Prix"]) . ' €</p>';
+                    
                     echo '</div>';
                 }
                 
@@ -133,11 +163,13 @@ if (isset($_SESSION['user_id'])) {
         <div class="detail-container" id="property_details">
             
         </div>
+        <div class="nom_agents">
+            <p>dedfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
+        </div>
     </div>
 </body>
 </html>
 
 <?php
-// Fermer la connexion à la base de données
 mysqli_close($db_handle);
 ?>

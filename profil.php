@@ -81,11 +81,11 @@ if (isset($_SESSION['user_id'])) {
                 <p><?php echo htmlspecialchars($adresse); ?></p>
                 <h3>Statut</h3>
                 <p><?php 
-                if ($permission == 1) {
+                if ($permission == 0) {
                     echo "Utilisateur";
-                } else if($permission == 2) {
+                } else if($permission == 1) {
                     echo "Agent";
-                } else if ($permission ==3) {
+                } else if ($permission ==2) {
                     echo "Administrateur";
                 }
                 
