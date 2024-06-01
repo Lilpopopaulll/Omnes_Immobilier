@@ -55,7 +55,7 @@ if (isset($_SESSION['user_id'])) {
         <nav>
             <ul>
             <li><a href="accueil.php">Accueil</a></li>
-                <li><a href="toutParcourir.html">Tout parcourir</a></li>
+                <li><a href="toutParcourir.php">Tout parcourir</a></li>
                 <li><a href="#">Recherche</a></li>
                 <li><a href="rdv.php">Rendez-vous</a></li>
                 <?php
@@ -68,6 +68,27 @@ if (isset($_SESSION['user_id'])) {
             </ul>
         </nav>
     </header>
+    <!-- Formulaire  -->
+    <form method="post" action="connexion.php">
+        <div id="overlay_connexion" class="overlay hidden">
+            <h1>CONNEXION</h1>
+            <div class="log">
+                <h2>IDENTIFIANT</h2>
+                <input class="input_log" type="text" placeholder="Entrer votre identifiant" name="email" required="required">
+                <div class="lg_log"></div>
+            </div>
+            <div class="log">
+                <h2>MOT DE PASSE</h2>
+                <input class="input_log" type="password" placeholder="Entrer votre mot de passe" required="required" name="password">
+                <div class="lg_log"></div>
+            </div>
+            <input value="Connexion" type ="submit" class="btn_connexion" name="login"></input>
+            <p>Mot de passe oublié ?</p>
+            <div class="inscription">
+                <p>Pas encore de compte ? <a href="inscription.php">S'inscrire</a></p>
+            </div>
+        </div>
+    </form>
     <main class="container">
         <section class="hero">
             <img
@@ -79,30 +100,34 @@ if (isset($_SESSION['user_id'])) {
         
         <div class="calendrier_container">
             <?php
-            if ($result && $result->num_rows > 0) {
-                // Affichage des rendez-vous dans un tableau
-                echo "<h2>Vos rendez-vous </h2>";
-                echo "<table>";
-                echo "<tr><th>Jour</th><th>Heure</th><th>Action</th></tr>";
-                while($row = $result->fetch_assoc()) {
-                    foreach($row as $day => $time) {
-                        if ($day !== 'ID_rdv' && $day !== 'ID_user' && $time !== null) {
-                            echo "<tr>";
-                            echo "<td>$day</td>";
-                            echo "<td>$time</td>";
-                            echo '<td>
-                                <form action="annulation.php" method="post">
-                                    <input type="hidden" name="ID_rdv" value="' . htmlspecialchars($row['ID_rdv']) . '">
-                                    <button type="submit" class="btn_deconnexion">Annuler</button>
-                                </form>
-                            </td>';
-                            echo "</tr>";
+            if (isset($_SESSION['user_id'])) {
+                if ($result && $result->num_rows > 0) {
+                    // Affichage des rendez-vous dans un tableau
+                    echo "<h2>Vos rendez-vous </h2>";
+                    echo "<table>";
+                    echo "<tr><th>Jour</th><th>Heure</th><th>Action</th></tr>";
+                    while($row = $result->fetch_assoc()) {
+                        foreach($row as $day => $time) {
+                            if ($day !== 'ID_rdv' && $day !== 'ID_user' && $time !== null) {
+                                echo "<tr>";
+                                echo "<td>$day</td>";
+                                echo "<td>$time</td>";
+                                echo '<td>
+                                    <form action="annulation.php" method="post">
+                                        <input type="hidden" name="ID_rdv" value="' . htmlspecialchars($row['ID_rdv']) . '">
+                                        <button type="submit" class="btn_deconnexion">Annuler</button>
+                                    </form>
+                                </td>';
+                                echo "</tr>";
+                            }
                         }
                     }
+                    echo "</table>";
+                } else {
+                    echo "Vous avez aucun rendez-vous de prévu";
                 }
-                echo "</table>";
             } else {
-                echo "Vous avez aucun rendez-vous de prévu";
+                echo "Vous n'êtes pas connecté";
             }
             ?>
         </div>
