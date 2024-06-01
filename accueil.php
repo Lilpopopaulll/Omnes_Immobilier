@@ -1,5 +1,34 @@
 <?php
 session_start(); // Démarrer la session
+// Vérifier si l'utilisateur est connecté
+if (isset($_SESSION['user_id'])) {
+    // Identifier le nom de la base de données
+    $database = "omnes_immobilier";
+
+    // Connectez-vous à votre BDD
+    // Votre serveur = localhost | votre login = root | votre mot de passe = '' (rien)
+    $db_handle = mysqli_connect('localhost', 'root', '', $database);
+
+    if (!$db_handle) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $user_id = $_SESSION['user_id'];
+    
+    // Récupérer les informations de l'utilisateur
+    $sql = "SELECT prenom, nom, adresse, permission FROM users WHERE id = '$user_id'";
+    $result = mysqli_query($db_handle, $sql);                
+    if (mysqli_num_rows($result) > 0) {
+                    $user_info = mysqli_fetch_assoc($result);
+                    $prenom = $user_info['prenom'];   
+                    $permission = $user_info['permission']; // Nouvelle ligne pour récupérer la permission
+                } else {
+                    echo "Aucune information trouvée pour l'utilisateur.";
+                }
+
+    // Fermeture de la connexion à la base de données
+    mysqli_close($db_handle);
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +50,10 @@ session_start(); // Démarrer la session
                 <li><a href="accueil.php">Accueil</a></li>
                 <li><a href="toutParcourir.html">Tout parcourir</a></li>
                 <li><a href="#">Recherche</a></li>
-                <li><a href="rdv.html">Rendez-vous</a></li>
+                <li><a href="rdv.php">Rendez-vous</a></li>
                 <?php
                 if (isset($_SESSION['user_id'])) {
-                    echo '<li><a href="profil.php" class="btn_toggle_compte">'.$_SESSION['user_id'].'</a></li>';
+                    echo '<li><a href="profil.php" class="btn_toggle_compte">'.htmlspecialchars($prenom).'</a></li>';
                 } else {
                     echo '<li><a href="#" class="btn_toggle_connexion">Connexion</a></li>';
                 }
@@ -39,7 +68,7 @@ session_start(); // Démarrer la session
             <h1>CONNEXION</h1>
             <div class="log">
                 <h2>IDENTIFIANT</h2>
-                <input class="input_log" type="text" placeholder="Entrer votre identifiant" name="id" required="required">
+                <input class="input_log" type="text" placeholder="Entrer votre identifiant" name="email" required="required">
                 <div class="lg_log"></div>
             </div>
             <div class="log">

@@ -28,7 +28,7 @@
       </div>
 
       <div class="input-field">
-        <input type="text" required name="id">
+        <input type="text" required name="email">
         <label>Entrer votre adresse email</label>
       </div>
 

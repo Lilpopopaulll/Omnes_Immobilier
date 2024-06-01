@@ -29,17 +29,20 @@ if (isset($_SESSION['user_id'])) {
                 }
 
     // Fermeture de la connexion à la base de données
-    mysqli_close($db_handle);
+    
 } 
 ?>
 
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/profil.css">
+    <title>Omnes Immobilier - RDV</title>
+    <link rel="stylesheet" href="./styles/rdv.css">
     <script src="script.js"></script>
-    <title>Profile</title>
 </head>
 <body>
     <header>
@@ -49,13 +52,13 @@ if (isset($_SESSION['user_id'])) {
               /></div>
         <nav>
             <ul>
-                <li><a href="accueil.php">Accueil</a></li>
+            <li><a href="accueil.php">Accueil</a></li>
                 <li><a href="toutParcourir.html">Tout parcourir</a></li>
                 <li><a href="#">Recherche</a></li>
                 <li><a href="rdv.php">Rendez-vous</a></li>
                 <?php
                 if (isset($_SESSION['user_id'])) {
-                    echo '<li><a href="#" class="btn_toggle_compte">'.htmlspecialchars($prenom).'</a></li>';
+                    echo '<li><a href="profil.php" class="btn_toggle_compte">'.htmlspecialchars($prenom).'</a></li>';
                 } else {
                     echo '<li><a href="#" class="btn_toggle_connexion">Connexion</a></li>';
                 }
@@ -63,38 +66,42 @@ if (isset($_SESSION['user_id'])) {
             </ul>
         </nav>
     </header>
-    
-    <div class="wrapper">
-        <div class="pdp">
-            <h2>Informations</h2>
-            <a href="deconnexion.php" class="btn_deconnexion">Deconnexion</a>
-        </div>
-        <div class="info">
-            <h2>Informations</h2>
-            <div class="lg_info"></div>
-            <div class="donnees">
-                <h3>Prénom</h3>
-                <p><?php echo htmlspecialchars($prenom); ?></p>
-                <h3>Nom</h3>
-                <p><?php echo htmlspecialchars($nom); ?></p>
-                <h3>Adresse</h3>
-                <p><?php echo htmlspecialchars($adresse); ?></p>
-                <h3>Statut</h3>
-                <p><?php 
-                if ($permission == 1) {
-                    echo "Utilisateur";
-                } else if($permission == 2) {
-                    echo "Agent";
-                } else if ($permission ==3) {
-                    echo "Administrateur";
+    <main class="container">
+        <section class="hero">
+            <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/3826d156db6da9ee77e8511101fa6d15a6ae3801acec3c890e54f920e581cdb7?"
+          class="img-2"
+            />
+            <h1>PRENEZ RENDEZ VOUS AVEC LES MEILLEURS AGENTS</h1>     
+        </section>
+        
+        <div class="calendrier_container">
+            <?php
+            // Requête pour récupérer tous les rendez-vous de l'utilisateur
+            $sql = "SELECT * FROM rdv WHERE ID_user = $user_id";
+            $result = $db_handle->query($sql);
+            
+            if ($result->num_rows > 0) {
+                // Affichage des rendez-vous
+                echo "<h2>Rendez-vous de l'utilisateur :</h2>";
+                echo "<ul>";
+                while($row = $result->fetch_assoc()) {
+                    foreach($row as $day => $time) {
+                        if ($day !== 'ID_rdv' && $day !== 'ID_user' && $time !== null) {
+                            echo "<li>Rendez-vous le $day à $time</li>";
+                        }
+                    }
                 }
-                
-               ?>
-               <h3>Identifiant</h3>
-               <p><?php echo $_SESSION['user_id']; ?></p>
-            </div>
+                echo "</ul>";
+            } else {
+                echo "Aucun rendez-vous trouvé pour cet utilisateur.";
+            }
+            
+            mysqli_close($db_handle);
+            ?>
         </div>
-    </div>
-    
+    </main>
+    <div class="fond_noir_dg"></div>
+    <div class="fond_noir" ></div>
 </body>
 </html>
