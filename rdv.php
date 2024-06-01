@@ -19,14 +19,14 @@ if (isset($_SESSION['user_id'])) {
     $sql = "SELECT prenom, nom, adresse, permission FROM users WHERE id = '$user_id'";
     $result = mysqli_query($db_handle, $sql);                
     if (mysqli_num_rows($result) > 0) {
-                    $user_info = mysqli_fetch_assoc($result);
-                    $prenom = $user_info['prenom'];
-                    $nom = $user_info['nom'];
-                    $adresse = $user_info['adresse'];
-                    $permission = $user_info['permission']; // Nouvelle ligne pour récupérer la permission
-                } else {
-                    echo "Aucune information trouvée pour l'utilisateur.";
-                }
+        $user_info = mysqli_fetch_assoc($result);
+        $prenom = $user_info['prenom'];
+        $nom = $user_info['nom'];
+        $adresse = $user_info['adresse'];
+        $permission = $user_info['permission']; // Nouvelle ligne pour récupérer la permission
+    } else {
+        echo "Aucune information trouvée pour l'utilisateur.";
+    }
 
     // Requête pour récupérer tous les rendez-vous de l'utilisateur
     $sql = "SELECT * FROM rdv WHERE ID_user = $user_id";
@@ -81,7 +81,7 @@ if (isset($_SESSION['user_id'])) {
             <?php
             if ($result && $result->num_rows > 0) {
                 // Affichage des rendez-vous dans un tableau
-                echo "<h2>Rendez-vous de l'utilisateur :</h2>";
+                echo "<h2>Vos rendez-vous </h2>";
                 echo "<table>";
                 echo "<tr><th>Jour</th><th>Heure</th><th>Action</th></tr>";
                 while($row = $result->fetch_assoc()) {
@@ -90,15 +90,19 @@ if (isset($_SESSION['user_id'])) {
                             echo "<tr>";
                             echo "<td>$day</td>";
                             echo "<td>$time</td>";
-                            echo '<td><form action="annulation.php" method="post"><a href="deconnexion.php" class="btn_deconnexion">Deconnexion</a>
-                            <input type="hidden" name="rdv_id" value="'.$row['ID_rdv'].'"><button type="submit">Annuler</button></form></td>';
+                            echo '<td>
+                                <form action="annulation.php" method="post">
+                                    <input type="hidden" name="ID_rdv" value="' . htmlspecialchars($row['ID_rdv']) . '">
+                                    <button type="submit" class="btn_deconnexion">Annuler</button>
+                                </form>
+                            </td>';
                             echo "</tr>";
                         }
                     }
                 }
                 echo "</table>";
             } else {
-                echo "Aucun rendez-vous trouvé pour cet utilisateur.";
+                echo "Vous avez aucun rendez-vous de prévu";
             }
             ?>
         </div>
