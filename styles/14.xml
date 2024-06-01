@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Caroline Lefebvre</Name>
+        <Address>90 Avenue de l'Immobilier, Reims, France</Address>
+        <Phone>+33 3 26 45 67 89</Phone>
+        <Email>caroline.lefebvre@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Reims Immo</Company>
+            <Location>Reims, France</Location>
+            <StartDate>2020-02-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Gestion des ventes et des locations de biens immobiliers.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Reims</Institution>
+        <Year>2019</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Arthur Rousseau</Name>
+        <Address>34 Boulevard de la Vente, Toulouse, France</Address>
+        <Phone>+33 5 61 23 45 67</Phone>
+        <Email>arthur.rousseau@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Toulouse Immo</Company>
+            <Location>Toulouse, France</Location>
+            <StartDate>2017-11-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Vente et location de biens immobiliers pour particuliers et entreprises.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Toulouse</Institution>
+        <Year>2016</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Pauline Martin</Name>
+        <Address>45 Avenue des Champs, Dijon, France</Address>
+        <Phone>+33 3 80 56 78 90</Phone>
+        <Email>pauline.martin@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Dijon Immo</Company>
+            <Location>Dijon, France</Location>
+            <StartDate>2019-03-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Gestion des transactions immobilières et relations clients.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Dijon</Institution>
+        <Year>2018</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

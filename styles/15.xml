@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Antoine Dubois</Name>
+        <Address>23 Rue des Agences, Toulon, France</Address>
+        <Phone>+33 4 94 56 78 90</Phone>
+        <Email>antoine.dubois@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Toulon Immobilier</Company>
+            <Location>Toulon, France</Location>
+            <StartDate>2016-07-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Conseil et vente de biens immobiliers pour particuliers et entreprises.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Toulon</Institution>
+        <Year>2015</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

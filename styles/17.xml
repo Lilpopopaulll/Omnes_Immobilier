@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Etienne Lefevre</Name>
+        <Address>67 Boulevard de l'Immobilier, Nancy, France</Address>
+        <Phone>+33 3 83 23 45 67</Phone>
+        <Email>etienne.lefevre@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Nancy Immobilier</Company>
+            <Location>Nancy, France</Location>
+            <StartDate>2018-11-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Conseil et gestion des transactions immobilières pour les clients.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Nancy</Institution>
+        <Year>2017</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

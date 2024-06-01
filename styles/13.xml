@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Isabelle Girard</Name>
+        <Address>78 Rue de l'Agence, Rouen, France</Address>
+        <Phone>+33 2 35 67 89 12</Phone>
+        <Email>isabelle.girard@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Rouen Immobilier</Company>
+            <Location>Rouen, France</Location>
+            <StartDate>2019-05-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Accompagnement des clients dans l'achat et la vente de propriétés.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Rouen</Institution>
+        <Year>2018</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>
