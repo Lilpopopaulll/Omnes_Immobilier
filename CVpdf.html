@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Viewer</title>
+    <script>
+        function afficherCV() {
+            var select = document.getElementById("nom");
+            var value = select.options[select.selectedIndex].value;
+
+            if (value === "1") {
+                window.open("CV/mariedupont.pdf", "_blank");
+            } else if (value === "2") {
+                window.open("CV/MARTINJEAN.pdf", "_blank");
+            } else if (value === "3") {
+                window.open("CV/bernardsophie.pdf", "_blank");
+            } else if (value === "4") {
+                window.open("CV/PIERREMOREAU.pdf", "_blank");
+            } else if (value === "5") {
+                window.open("CV/lefevreemma.pdf", "_blank");
+            } else if (value === "6") {
+                window.open("CV/clairepetit.pdf", "_blank");
+            } else if (value === "7") {
+                window.open("CV/ALEXPETIT.pdf", "_blank");
+            } else if (value === "8") {
+                window.open("CV/SophieDubois.pdf", "_blank");
+            } else if (value === "9") {
+                window.open("CV/Maximemartin.pdf", "_blank");
+            } else if (value === "10") {
+                window.open("CV/ElodieLEFEVRE.pdf", "_blank");
+            } else if (value === "11") {
+                window.open("CV/arthurrousseaux.pdf", "_blank");
+            } else if (value === "12") {
+                window.open("CV/LaurentMorel.pdf", "_blank");
+            } else if (value === "13") {
+                window.open("CV/ISABELLEGIRARD.pdf", "_blank");
+            } else if (value === "14") {
+                window.open("CV/CAROLINELEFEVRE.pdf", "_blank");
+            } else if (value === "15") {
+                window.open("CV/Antoinedubois.pdf", "_blank");
+            } else if (value === "16") {
+                window.open("CV/PAULINEMARTIN.pdf", "_blank");
+            } else if (value === "17") {
+                window.open("CV/Etiennelefrbvre.pdf", "_blank");
+            } else if (value === "18") {
+                window.open("CV/JULIEMOREL.pdf", "_blank");
+            } else if (value === "19") {
+                window.open("CV/MARCLEFEBVRE.pdf", "_blank");
+            } else if (value === "20") {
+                window.open("CV/lefevreemma.pdf", "_blank");
+            }
+        }
+    </script>
+</head>
+<body>
+    <label for="nom">Choisissez un nom :</label>
+    <select id="nom" onchange="afficherCV()">
+        <option value="">--Sélectionnez--</option>
+        <option value="1">Dupont Marie</option>
+        <option value="2">Martin jean</option>
+        <option value="3">bernard Sophie</option>
+        <option value="4">Moreaux Pierre</option>
+        <option value="5">Lefevre Emma</option>
+        <option value="6">Claire Laurent</option>
+        <option value="7">Alexandre Petit</option>
+        <option value="8">Sophie Dubois</option>
+        <option value="9">Maxime Martin</option>
+        <option value="10">Elodie Lefevre</option>
+        <option value="11">Arthur Rousseau</option>
+        <option value="12">Laurent Morel</option>
+        <option value="13">Isabelle Girard</option>
+        <option value="14">Caroline Lefebvre</option>
+        <option value="15">Antoine Dubois</option>
+        <option value="16">Pauline Martin</option>
+        <option value="17">Etienne Lefevre</option>
+        <option value="18">Julie Morel</option>
+        <option value="19">Marc Lefevre</option>
+        <option value="20">Valerie Durand</option>
+    </select>
+</body>
+</html>
