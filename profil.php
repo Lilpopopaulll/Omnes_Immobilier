@@ -56,7 +56,7 @@ if (isset($_SESSION['user_id'])) {
             <ul>
                 <li><a href="accueil.php">Accueil</a></li>
                 <li><a href="toutParcourir.php">Tout parcourir</a></li>
-                <li><a href="#">Recherche</a></li>
+                <li><a href="RechercherProjet.php">Recherche</a></li>
                 <li><a href="rdv.php">Rendez-vous</a></li>
                 <?php
                 if (isset($_SESSION['user_id'])) {
