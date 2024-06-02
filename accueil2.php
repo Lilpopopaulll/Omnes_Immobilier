@@ -30,6 +30,45 @@ if (isset($_SESSION['user_id'])) {
     mysqli_close($db_handle);
 } 
 ?>
+
+<?php
+// Connexion à la base de données
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "omnes_immobilier";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Récupérer l'identifiant de la propriété depuis l'URL
+$property_id = $_GET['ID'];
+
+// Échapper les caractères spéciaux pour éviter les injections SQL
+$property_id = $conn->real_escape_string($property_id);
+
+// Requête SQL pour obtenir les détails de la propriété
+$sql = "SELECT * FROM properties WHERE ID_propiete = $property_id";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Afficher les détails de la propriété
+    $property = $result->fetch_assoc();
+    echo "<h1>" . $property["Adresse"] . "</h1>";
+    echo "<p>Location: " . $property["Ville"] . "</p>";
+    echo "<p>Price: $" . $property["Prix"] . "</p>";
+    echo "<p>Description: " . $property["Statut"] . "</p>";
+    // Ajoutez d'autres champs selon votre base de données
+} else {
+    echo "Property not found.";
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -179,7 +218,7 @@ if (isset($_SESSION['user_id'])) {
              <p><i class="fas fa-bath"></i><span>2</span></p>
              <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
           </div>
-          <a href="view_property.html" class="btn">view property</a>
+          <a href="accueil2.php?ID_propriete=1001" class="btn">view property</a>
        </div>
  
        <div class="box">
