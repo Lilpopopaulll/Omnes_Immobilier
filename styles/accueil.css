@@ -98,7 +98,7 @@ main {
     display: flex;
     position : relative;
     top : 10px;
-    width: 35%;
+    width: 45%;
     margin-left : 50px;
     text-align: center;
     flex-direction: column;
@@ -114,7 +114,7 @@ main {
     height: auto; 
 }
 .hero h1 {
-    font-size: 2.7em;
+    font-size: 3em;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -123,6 +123,8 @@ main {
 
 .hero #lg {
     position : relative;
+    margin-top: 3%;
+    margin-bottom: 3%;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid rgba(48, 30, 110, 0.534);
@@ -255,7 +257,7 @@ main {
     left: 78%;
     border-radius: 2px;
     width: 20%;
-    height: 85%;
+    height: 88%;
     background-color: rgba(255, 255, 255, 0.3);
     text-align: left;
     padding-left: 30px;
@@ -323,7 +325,7 @@ main {
 
 .inscription {
     position: relative;
-    top: 20%;
+    top: 40%;
 }
 .inscription a {
     text-decoration: none;
