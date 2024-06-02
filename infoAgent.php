@@ -325,7 +325,7 @@ if (isset($_SESSION['user_id'])) {
             </div>
         <div class="buttons">
             <button id="book-appointment">Prendre un RDV</button>
-            <button id="contact-agent">Communiquer avec l'agent immobilier</button>
+            <button id="contact-agent"><a href="chat.php" id="contact-agent" >Communiquer avec l'agent immobilier</a></button>
             <button id="view-cv">Voir son CV</button>
         </div>
         <div id="confirmationMessage"></div>
