@@ -72,7 +72,7 @@ if (isset($_SESSION['user_id'])) {
     <div class="wrapper">
         <div class="pdp">
             <?php 
-                if ($permission == 0) {
+                if ($permission == 2) {
                     if ($result && $result->num_rows > 0) {
                         echo "<h3>Agent </h2>";
                         echo "<table>";
@@ -92,7 +92,7 @@ if (isset($_SESSION['user_id'])) {
                         echo "</table>";
                     }
                 }
-                if ($permission == 0) {
+                if ($permission == 2) {
                     if ($result2 && $result2->num_rows > 0) {
                         echo "<h3>Propriétes </h2>";
                         echo "<table>";
@@ -112,7 +112,7 @@ if (isset($_SESSION['user_id'])) {
                         echo "</table>";
                     }
                 }
-                if ($permission == 0) {
+                if ($permission == 2) {
                     echo "<a href='ajouter_propriete.php' class='btn_deconnexion'>Ajouter une propriété</a>";
                     echo "<a href='ajouter_agent.php' class='btn_deconnexion'>Ajouter un agent</a>";
 
