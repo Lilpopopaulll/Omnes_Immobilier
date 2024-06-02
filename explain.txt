@@ -1,0 +1,93 @@
+Fonctionnalités 
+1) Compte administrateur 
+• Le site devra contenir trois types d’utilisateurs : l’administrateur, l’agent immobilier, et le 
+client.  
+• Avant tout, il y a l'administrateur. C'est lui qui est le propriétaire de ce site e-consultation 
+immobilière. Il ajoute des biens immobiliers dans le site. Quand une propriété est vendue, il 
+n’est plus possible de la vendre et donc cette propriété est retirée dans le site par 
+l’administrateur. L’administrateur, il ajoute également des agents immobiliers dans le site. 
+Chaque agent immobilier possède son numéro d’identification (ID), son nom, une ou 
+plusieurs photos, sa spécialité, sa vidéo (si disponible), son CV et sa disponibilité de la 
+Page 7 sur 12                                                                                                                                                                          
+© 2024 | Manolo Dulva HINA 
+ING2 2024 
+Projet Web dynamique  
+Omnes Immobilier : Au service de vos besoins immobiliers 
+semaine. Cette personne possède un courriel et aussi son propre compte pour communiquer 
+avec des clients par texto, audio ou vidéo.  
+• Attention ! Un administrateur est aussi capable de supprimer des agents immobiliers dans 
+le site.  
+• Dans le site d’Omnes Immobilier, un administrateur peut accéder au menu « Votre 
+Compte ». Cette partie identifie un administrateur par son « Nom et Prénom », et son 
+« Courriel ».  
+• Un administrateur crée des fichiers qui contient des informations dans le CV d’un agent 
+immobilier. Un fichier pour Monsieur Jean-Pierre SEGADO, par exemple, contient ses 
+formations, expériences et autres.  
+• Dans ce site d’e-consultation immobilière, l’administrateur fournit les informations de 
+chaque propriété immobilière. C’est encore l’administrateur qui fournit la disponibilité de 
+chaque personnel immobilier dans le site, après sa consultation avec eux.  
+2) Les agents immobiliers 
+• Quand ils ont de temps, les agents immobiliers visitent le site Omnes Immobilier pour être 
+en contact avec les clients de l’Omnes Immobilier. Un agent immobilier peut communiquer 
+avec un (ou plusieurs) client/s par courriel, par texto, par audio ou par vidéoconférence dans 
+une fenêtre, souvent appelé « chat room ».  
+• Dans le site d’Omnes Immobilier, un agent immobilier peut accéder au menu « Votre 
+Compte ». Cette partie identifie un agent par son « Nom et Prénom », et son « Courriel ».  
+• Chaque agent immobilier a son propre dossier, qui est affiché dans le site avec ses 
+consultations courantes ou à venir. Chaque consultation contient la date/heure de cette 
+consultation, avec des informations pertinentes de son client.  
+3) Les clients 
+• Un client visite le site Omnes Immobilier pour consulter les biens immobiliers disponibles 
+chez Omnes Immobilier, pour voir la disponibilité d’un agent immobilier durant la semaine, 
+ou pour prendre un RDV avec un agent. Dans le site Omnes Immobilier, le client peut 
+accéder au menu « Votre Compte ». Cette partie identifie un client par son « Nom et 
+Prénom », son « Adresse », son « Email », et ses informations financières (cachée 
+discrètement).  
+• Chaque client a son propre dossier, qui est affiché dans le site avec ses historiques de 
+consultation immobilière. Dans cette page, on peut trouver toutes les consultations dont le 
+client a fait. Chaque consultation contient la date/heure de cette consultation, et avec quel 
+agent immobilier.  
+• Dans son RDV à venir, il y a un bouton « Annuler ce RDV » à côté. En cliquant sur ce bouton, 
+notre RDV sera annulé et le créneau de ce RDV est libéré.  
+• La page web d’Omnes Immobilier accède au compte du client. Evidemment, il y a quelques 
+services immobiliers qui sont payant. Par exemple, quand on trouve un appartement grâce 
+Page 8 sur 12                                                                                                                                                                          
+© 2024 | Manolo Dulva HINA 
+ING2 2024 
+Projet Web dynamique  
+Omnes Immobilier : Au service de vos besoins immobiliers 
+à Omnes Immobilier, on paye le frais d’agence immobilière (frais honoraire). Pour ce projet, 
+on suppose qu’il y a au moins un ou deux services dont le client va payer de quelque prix.  
+• Pour la raison de sécurité, le client s’identifie par son login (son courriel) et son mot de 
+passe. Si un nouveau client n’a pas de compte sur le site, on crée un nouveau compte apte 
+pour ce client.  
+• Quand le login et mot de passe sont tous vérifiés (en vérifiant que ces informations sont 
+stockées dans la BDD), le site du paiement saisit ses coordonnées :  
+o Nom et Prénom  
+o Adresse Ligne 1  
+o Adresse Ligne 2  
+o Ville  
+o Code Postal  
+o Pays  
+o Numéro de téléphone du client 
+Dans le cas de paiement, on demande ces informations au client :  
+o Type de carte de paiement (Visa, MasterCard, American Express, PayPal)  
+o Numéro de la carte  
+o Nom affiché dans la carte  
+o Date d’expiration de la carte et  
+o Code de sécurité (3 ou 4 chiffres, selon la carte).  
+• Dans la vraie vie, le site de l’Omnes Immobilier communique avec la banque ou l’institution 
+financière pour l’approbation d’un paiement par la carte de crédit. Dans ce projet, on va 
+simplement valider l’achat si on trouve toutes ces informations dans notre BDD. Il faut 
+créer au moins un compte dans la BDD pour montrer une validation d’un achat.  
+• Quand une transaction de paiement est terminée, le site envoie un message courriel ou 
+texto au client, validant le paiement.  
+4) Fonctionnalités avancées / innovantes  
+• Vous avez des flexibilités d’interpréter quelques parties de ce sujet, en tenant compte de 
+ce qui constitue le meilleur site d’e-consultation immobilière possible. En plus, vous êtes 
+libres d’ajouter quelques fonctionnalités avancées ou innovantes dans votre site de l’Omnes 
+Immobilier. 
+• Vous pouvez mettre l’option de paiement par chèque-cadeau fourni par « Omnes 
+Immobilier », « ECE Paris » ou « Inseec U » ou « Omnes Education » à ses fidèles clients 
+comme un autre mode de paiement ou en complémentarité avec le paiement par carte de 
+crédit.
