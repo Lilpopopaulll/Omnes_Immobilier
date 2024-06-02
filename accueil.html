@@ -1,3 +1,35 @@
+<?php
+session_start(); // Démarrer la session
+// Vérifier si l'utilisateur est connecté
+if (isset($_SESSION['user_id'])) {
+    // Identifier le nom de la base de données
+    $database = "omnes_immobilier";
+
+    // Connectez-vous à votre BDD
+    // Votre serveur = localhost | votre login = root | votre mot de passe = '' (rien)
+    $db_handle = mysqli_connect('localhost', 'root', '', $database);
+
+    if (!$db_handle) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $user_id = $_SESSION['user_id'];
+    
+    // Récupérer les informations de l'utilisateur
+    $sql = "SELECT prenom, nom, adresse, permission FROM users WHERE id = '$user_id'";
+    $result = mysqli_query($db_handle, $sql);                
+    if (mysqli_num_rows($result) > 0) {
+                    $user_info = mysqli_fetch_assoc($result);
+                    $prenom = $user_info['prenom'];   
+                    $permission = $user_info['permission']; // Nouvelle ligne pour récupérer la permission
+                } else {
+                    echo "Aucune information trouvée pour l'utilisateur.";
+                }
+
+    // Fermeture de la connexion à la base de données
+    mysqli_close($db_handle);
+} 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,20 +47,28 @@
               /></div>
         <nav>
             <ul>
-                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="accueil.php">Accueil</a></li>
                 <li><a href="toutParcourir.html">Tout parcourir</a></li>
                 <li><a href="#">Recherche</a></li>
-                <li><a href="rdv.html">Rendez-vous</a></li>
-                <li><a href="#" class="btn_toggle_connexion">Connexion</a></li>
+                <li><a href="rdv.php">Rendez-vous</a></li>
+                <?php
+                if (isset($_SESSION['user_id'])) {
+                    echo '<li><a href="profil.php" class="btn_toggle_compte">'.htmlspecialchars($prenom).'</a></li>';
+                } else {
+                    echo '<li><a href="#" class="btn_toggle_connexion">Connexion</a></li>';
+                }
+                ?>
             </ul>
         </nav>
     </header>
+    
+    <!-- Formulaire  -->
     <form method="post" action="connexion.php">
-        <div id="overlay_connexion">
+        <div id="overlay_connexion" class="overlay hidden">
             <h1>CONNEXION</h1>
             <div class="log">
-                <h2>EMAIL</h2>
-                <input class="input_log" type="text" placeholder="Entrer votre identifiant" name="id" required="required">
+                <h2>IDENTIFIANT</h2>
+                <input class="input_log" type="text" placeholder="Entrer votre identifiant" name="email" required="required">
                 <div class="lg_log"></div>
             </div>
             <div class="log">
@@ -38,8 +78,12 @@
             </div>
             <input value="Connexion" type ="submit" class="btn_connexion" name="login"></input>
             <p>Mot de passe oublié ?</p>
+            <div class="inscription">
+                <p>Pas encore de compte ? <a href="inscription.php">S'inscrire</a></p>
+            </div>
         </div>
     </form>
+    
     
     <main class="container">
         <section class="hero">
@@ -83,56 +127,7 @@
             <div class="action">
                 <button class="action-btn">Membres</button>
             </div>
-        
         </section>
-        
-        <div class="--container">
-            <input type="radio" name="slider" id="item-1" checked>
-            <input type="radio" name="slider" id="item-2">
-            <input type="radio" name="slider" id="item-3">
-          <div class="cards">
-            <label class="card" for="item-1" id="song-1">
-              <img src="immo2.png" alt="song">
-            </label>
-            <label class="card" for="item-2" id="song-2">
-              <img src="R.jpg" alt="song">
-            </label>
-            <label class="card" for="item-3" id="song-3">
-              <img src="R1.jpg" alt="song">
-            </label>
-          </div>
-          <div class="player">
-            <div class="upper-part">
-              <div class="info-area" id="test">
-                <label class="song-info" id="song-info-1">
-                  <div class="title">Bunker</div>
-                  <div class="sub-line">
-                    <div class="subtitle">Balthazar</div>
-                    <div class="time">4.05</div>
-                  </div>
-                </label>
-                <label class="song-info" id="song-info-2">
-                  <div class="title">Words Remain</div>
-                  <div class="sub-line">
-                    <div class="subtitle">Moderator</div>
-                    <div class="time">4.05</div>
-                  </div>
-                </label>
-                <label class="song-info" id="song-info-3">
-                  <div class="title">Falling Out</div>
-                  <div class="sub-line">
-                    <div class="subtitle">Otzeki</div>
-                    <div class="time">4.05</div>
-                  </div>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-    
-
-        
         <img class="transition-image"src="pngegg.png" alt="Description de l'image" width="500" height="300">
 
 <section class="about" id="about">
@@ -427,5 +422,6 @@
 
     </main>
     <script src="scripts2.js"></script>
+    </main>
 </body>
 </html>

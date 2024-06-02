@@ -45,7 +45,7 @@ if ($db_found) {
             echo "<td>" . $property['Adresse'] . "</td>";
             echo "<td>" . $property['Ville'] . "</td>";
             echo "<td>" . $property['Prix'] . "€</td>";
-            echo "<td><img src='" . $property['Image'] . "' alt='Image de la propriété' width='500'></td>";
+            echo "<td><img src='" . $property['url_image'] . "' alt='Image de la propriété' width='500'></td>";
             echo "<td>" . $property['agent_nom'] . "</td>";
             echo "<td>" . $property['Statut'] . "</td>";
             echo "</tr>";

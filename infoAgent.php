@@ -317,7 +317,7 @@ $rdv = $db_handle->query($sql);
         <div class="buttons">
             <a href="ajout_rdv.php" class="btn_ajout">Deconnexion</a>
             <button id="book-appointment">Prendre un RDV</button>
-            <button id="contact-agent">Communiquer avec l'agent immobilier</button>
+            <button id="contact-agent"><a href="chat.php" id="contact-agent" >Communiquer avec l'agent immobilier</a></button>
             <button id="view-cv">Voir son CV</button>
         </div>
         <div id="confirmationMessage"></div>

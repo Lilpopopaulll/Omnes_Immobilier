@@ -1,5 +1,42 @@
 <?php
 session_start();
+
+// Vérifiez si l'utilisateur est connecté
+if (isset($_SESSION['user_id'])) {
+    // Identifiez le nom de la base de données
+    $database = "omnes_immobilier";
+
+    // Connectez-vous à votre BDD
+    $db_handle = mysqli_connect('localhost', 'root', '', $database);
+
+    if (!$db_handle) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $user_id = $_SESSION['user_id'];
+
+    // Récupérez les informations de l'utilisateur
+    $sql = "SELECT prenom, nom, adresse, permission FROM users WHERE id = '$user_id'";
+    $result = mysqli_query($db_handle, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        $user_info = mysqli_fetch_assoc($result);
+        $prenom = $user_info['prenom'];
+        $nom = $user_info['nom'];
+        $adresse = $user_info['adresse'];
+        $permission = $user_info['permission']; // Nouvelle ligne pour récupérer la permission
+
+        // Définir le nom de l'utilisateur dans la session
+        $_SESSION['name'] = $prenom;
+    } else {
+        echo "Aucune information trouvée pour l'utilisateur.";
+    }
+
+    // Fermez la connexion à la base de données
+    mysqli_close($db_handle);
+}
+
+// Déconnexion de l'utilisateur
 if (isset($_GET['logout'])) {
     $logout_message = "<div class='msgln'><span class='left-info'>User <b class='user-name-left'>" . $_SESSION['name'] . "</b> a quitté la session de chat.</span><br></div>";
     $myfile = fopen(__DIR__ . "/log.html", "a") or die("Impossible d'ouvrir le fichier!" . __DIR__ . "/log.html");
@@ -8,14 +45,6 @@ if (isset($_GET['logout'])) {
     session_destroy();
     sleep(1);
     header("Location: chat.php"); //Rediriger l'utilisateur
-}
-
-if (isset($_POST['enter'])) {
-    if ($_POST['name'] != "") {
-        $_SESSION['name'] = stripslashes(htmlspecialchars($_POST['name']));
-    } else {
-        echo '<span class="error">Veuillez saisir votre nom</span>';
-    }
 }
 
 function loginForm() {
@@ -29,7 +58,6 @@ function loginForm() {
           </div>';
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +68,7 @@ function loginForm() {
 <body>
 <?php
 if (!isset($_SESSION['name'])) {
-    loginForm();
+    header("Location: accueil.php");
 } else {
 ?>
     <div id="wrapper">
