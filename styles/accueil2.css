@@ -325,53 +325,7 @@ input[type="password"]:focus {
     text-align: center;
 }
 
-.arrow {
-    border-radius: 100%;
-    position: relative;
-    bottom: 8%;
-    width: 70px;
-    height: 70px;
-    background-color: #cc6495e5;
-    margin: auto;
-}
 
-.down-arrow {
-    position: relative;
-    width: 0;
-    height: 30px;
-    border: 2px solid;
-    border-radius: 2px;
-    margin: 30px auto; /* Centrer horizontalement */
-}
-
-.down-arrow:after {
-    content: " ";
-    position: absolute;
-    top: 12px;
-    left: 50%; /* Positionner au centre horizontalement */
-    transform: translateX(-50%) rotateZ(45deg); /* Déplacer de -50% de la largeur du parent */
-    width: 16px;
-    height: 16px;
-    border-bottom: 4px solid;
-    border-right: 4px solid;
-    border-radius: 4px;
-}
-
-@keyframes jumpInfinite {
-    0% {
-        margin-top: 0;
-    }
-    50% {
-        margin-top: 20px;
-    }
-    100% {
-        margin-top: 0;
-    }
-}
-
-.down-arrow {
-    animation: jumpInfinite 1.5s infinite;
-}
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
 :root{

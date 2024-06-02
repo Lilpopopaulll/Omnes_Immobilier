@@ -66,7 +66,7 @@ if (isset($_SESSION['user_id'])) {
     
     <div class="wrapper">
         <div class="pdp">
-            <h2>Informations</h2>
+            
             <a href="deconnexion.php" class="btn_deconnexion">Deconnexion</a>
         </div>
         <div class="info">

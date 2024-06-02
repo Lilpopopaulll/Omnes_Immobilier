@@ -8,7 +8,6 @@ if (!$db_handle) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
   
@@ -23,11 +22,9 @@ if (isset($_SESSION['user_id'])) {
     }
 }
 
-    // Requête pour récupérer tous les rendez-vous de l'utilisateur
-    $sql = "SELECT * FROM rdv";
-    $result = $db_handle->query($sql);
- 
-
+// Requête pour récupérer tous les rendez-vous de l'utilisateur
+$sql = "SELECT * FROM rdv WHERE ID_user = 15";
+$rdv = $db_handle->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -36,11 +33,10 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informations de l'Agent</title>
-    <link rel="stylesheet" type="text/css" href="infoAgent.css">
+    <link rel="stylesheet" type="text/css" href="./styles/infoAgent.css">
     <script src="script.js"></script>
     <script src="Calendrier.js"></script>
-
-
+    
 </head>
 <body>
     <header>
@@ -100,7 +96,6 @@ if (isset($_SESSION['user_id'])) {
                 <table id="availability">
                     <thead>
                         <tr>
-                            <th colspan="2">Spécialité et Agent</th>
                             <th colspan="2">Lundi</th>
                             <th colspan="2">Mardi</th>
                             <th colspan="2">Mercredi</th>
@@ -109,7 +104,6 @@ if (isset($_SESSION['user_id'])) {
                             <th colspan="2">Samedi</th>
                         </tr>
                         <tr>
-                            <th colspan="2"></th>
                             <th>AM</th>
                             <th>PM</th>
                             <th>AM</th>
@@ -126,204 +120,202 @@ if (isset($_SESSION['user_id'])) {
                     </thead>
                     <tbody>
                         <tr>
-                            <td colspan="2" rowspan="9">Immobilier Résidentiel - Jean-Pierre SEGADO</td>
                             <!-- Lundi -->
-                            <td class="available" id="lundi-09:00">09:00</td>
-                            <td class="available" id="lundi-14:00">14:00</td>
+                            <td class="available" id="lundi-09:00"><a href="ajout_rdv.php?time=lundi-09:00">09:00</a></td>
+                            <td class="available" id="lundi-14:00"><a href="ajout_rdv.php?time=lundi-14:00">14:00</a></td>
                             <!-- Mardi -->
-                            <td class="available" id="mardi-09:00">09:00</td>
-                            <td class="available" id="mardi-14:00">14:00</td>
+                            <td class="available" id="mardi-09:00"><a href="ajout_rdv.php?time=mardi-09:00">09:00</a></td>
+                            <td class="available" id="mardi-14:00"><a href="ajout_rdv.php?time=mardi-14:00">14:00</a></td>
                             <!-- Mercredi -->
-                            <td class="available" id="mercredi-09:00">09:00</td>
-                            <td class="available" id="mercredi-14:00">14:00</td>
+                            <td class="available" id="mercredi-09:00"><a href="ajout_rdv.php?time=mercredi-09:00">09:00</a></td>
+                            <td class="available" id="mercredi-14:00"><a href="ajout_rdv.php?time=mercredi-14:00">14:00</a></td>
                             <!-- Jeudi -->
-                            <td class="available" id="jeudi-09:00">09:00</td>
-                            <td class="available" id="jeudi-14:00">14:00</td>
+                            <td class="available" id="jeudi-09:00"><a href="ajout_rdv.php?time=jeudi-09:00">09:00</a></td>
+                            <td class="available" id="jeudi-14:00"><a href="ajout_rdv.php?time=jeudi-14:00">14:00</a></td>
                             <!-- Vendredi -->
-                            <td class="available" id="vendredi-09:00">09:00</td>
-                            <td class="available" id="vendredi-14:00">14:00</td>
+                            <td class="available" id="vendredi-09:00"><a href="ajout_rdv.php?time=vendredi-09:00">09:00</a></td>
+                            <td class="available" id="vendredi-14:00"><a href="ajout_rdv.php?time=vendredi-14:00">14:00</a></td>
                             <!-- Samedi -->
-                            <td class="available" id="samedi-09:00">09:00</td>
-                            <td class="available" id="samedi-14:00">14:00</td>
+                            <td class="available" id="samedi-09:00"><a href="ajout_rdv.php?time=samedi-09:00">09:00</a></td>
+                            <td class="available" id="samedi-14:00"><a href="ajout_rdv.php?time=samedi-14:00">14:00</a></td>
                         </tr>
 
                         <tr>
                             <!-- Lundi -->
-                            <td class="available" id="lundi-09:30">09:30</td>
-                            <td class="available" id="lundi-14:30">14:30</td>
+                            <td class="available" id="lundi-09:30"><a href="ajout_rdv.php?time=lundi-09:30">09:30</a></td>
+                            <td class="available" id="lundi-14:30"><a href="ajout_rdv.php?time=lundi-14:30">14:30</a></td>
                             <!-- Mardi -->
-                            <td class="available" id="mardi-09:30">09:30</td>
-                            <td class="unavailable" id="mardi-14:30">14:30</td>
+                            <td class="available" id="mardi-09:30"><a href="ajout_rdv.php?time=mardi-09:30">09:30</a></td>
+                            <td class="available" id="mardi-14:30"><a href="ajout_rdv.php?time=mardi-14:30">14:30</a></td>
                             <!-- Mercredi -->
-                            <td class="unavailable" id="mercredi-09:30">09:30</td>
-                            <td class="available" id="mercredi-14:30">14:30</td>
+                            <td class="available" id="mercredi-09:30"><a href="ajout_rdv.php?time=mercredi-09:30">09:30</a></td>
+                            <td class="available" id="mercredi-14:30"><a href="ajout_rdv.php?time=mercredi-14:30">14:30</a></td>
                             <!-- Jeudi -->
-                            <td class="available" id="jeudi-09:30">09:30</td>
-                            <td class="unavailable" id="jeudi-14:30">14:30</td>
+                            <td class="available" id="jeudi-09:30"><a href="ajout_rdv.php?time=jeudi-09:30">09:30</a></td>
+                            <td class="available" id="jeudi-14:30"><a href="ajout_rdv.php?time=jeudi-14:30">14:30</a></td>
                             <!-- Vendredi -->
-                            <td class="unavailable" id="vendredi-09:30">09:30</td>
-                            <td class="available" id="vendredi-14:30">14:30</td>
+                            <td class="available" id="vendredi-09:30"><a href="ajout_rdv.php?time=vendredi-09:30">09:30</a></td>
+                            <td class="available" id="vendredi-14:30"><a href="ajout_rdv.php?time=vendredi-14:30">14:30</a></td>
                             <!-- Samedi -->
-                            <td class="available" id="samedi-09:30">09:30</td>
-                            <td class="unavailable" id="samedi-14:30">14:30</td>
+                            <td class="available" id="samedi-09:30"><a href="ajout_rdv.php?time=samedi-09:30">09:30</a></td>
+                            <td class="available" id="samedi-14:30"><a href="ajout_rdv.php?time=samedi-14:30">14:30</a></td>
                         </tr>
 
                         <tr>
                             <!-- Lundi -->
-                            <td class="unavailable" id="lundi-10:00">10:00</td>
-                            <td class="available" id="lundi-15:00">15:00</td>
+                            <td class="available" id="lundi-10:00"><a href="ajout_rdv.php?time=lundi-10:00">10:00</a></td>
+                            <td class="available" id="lundi-15:00"><a href="ajout_rdv.php?time=lundi-15:00">15:00</a></td>
                             <!-- Mardi -->
-                            <td class="unavailable" id="mardi-10:00">10:00</td>
-                            <td class="available" id="mardi-15:00">15:00</td>
+                            <td class="available" id="mardi-10:00"><a href="ajout_rdv.php?time=mardi-10:00">10:00</a></td>
+                            <td class="available" id="mardi-15:00"><a href="ajout_rdv.php?time=mardi-15:00">15:00</a></td>
                             <!-- Mercredi -->
-                            <td class="available" id="mercredi-10:00">10:00</td>
-                            <td class="unavailable" id="mercredi-15:00">15:00</td>
+                            <td class="available" id="mercredi-10:00"><a href="ajout_rdv.php?time=mercredi-10:00">10:00</a></td>
+                            <td class="available" id="mercredi-15:00"><a href="ajout_rdv.php?time=mercredi-15:00">15:00</a></td>
                             <!-- Jeudi -->
-                            <td class="unavailable" id="jeudi-10:00">10:00</td>
-                            <td class="available" id="jeudi-15:00">15:00</td>
+                            <td class="available" id="jeudi-10:00"><a href="ajout_rdv.php?time=jeudi-10:00">10:00</a></td>
+                            <td class="available" id="jeudi-15:00"><a href="ajout_rdv.php?time=jeudi-15:00">15:00</a></td>
                             <!-- Vendredi -->
-                            <td class="available" id="vendredi-10:00">10:00</td>
-                            <td class="unavailable" id="vendredi-15:00">15:00</td>
+                            <td class="available" id="vendredi-10:00"><a href="ajout_rdv.php?time=vendredi-10:00">10:00</a></td>
+                            <td class="available" id="vendredi-15:00"><a href="ajout_rdv.php?time=vendredi-15:00">15:00</a></td>
                             <!-- Samedi -->
-                            <td class="available" id="samedi-10:00">10:00</td>
-                            <td class="unavailable" id="samedi-15:00">15:00</td>
+                            <td class="available" id="samedi-10:00"><a href="ajout_rdv.php?time=samedi-10:00">10:00</a></td>
+                            <td class="available" id="samedi-15:00"><a href="ajout_rdv.php?time=samedi-15:00">15:00</a></td>
                         </tr>
 
                         <tr>
                             <!-- Lundi -->
-                            <td class="available" id="lundi-10:30">10:30</td>
-                            <td class="unavailable" id="lundi-15:30">15:30</td>
+                            <td class="available" id="lundi-10:30"><a href="ajout_rdv.php?time=lundi-10:30">10:30</a></td>
+                            <td class="available" id="lundi-15:30"><a href="ajout_rdv.php?time=lundi-15:30">15:30</a></td>
                             <!-- Mardi -->
-                            <td class="available" id="mardi-10:30">10:30</td>
-                            <td class="unavailable" id="mardi-15:30">15:30</td>
+                            <td class="available" id="mardi-10:30"><a href="ajout_rdv.php?time=mardi-10:30">10:30</a></td>
+                            <td class="available" id="mardi-15:30"><a href="ajout_rdv.php?time=mardi-15:30">15:30</a></td>
                             <!-- Mercredi -->
-                            <td class="unavailable" id="mercredi-10:30">10:30</td>
-                            <td class="available" id="mercredi-15:30">15:30</td>
+                            <td class="available" id="mercredi-10:30"><a href="ajout_rdv.php?time=mercredi-10:30">10:30</a></td>
+                            <td class="available" id="mercredi-15:30"><a href="ajout_rdv.php?time=mercredi-15:30">15:30</a></td>
                             <!-- Jeudi -->
-                            <td class="available" id="jeudi-10:30">10:30</td>
-                            <td class="unavailable" id="jeudi-15:30">15:30</td>
+                            <td class="available" id="jeudi-10:30"><a href="ajout_rdv.php?time=jeudi-10:30">10:30</a></td>
+                            <td class="available" id="jeudi-15:30"><a href="ajout_rdv.php?time=jeudi-15:30">15:30</a></td>
                             <!-- Vendredi -->
-                            <td class="unavailable" id="vendredi-10:30">10:30</td>
-                            <td class="available" id="vendredi-15:30">15:30</td>
+                            <td class="available" id="vendredi-10:30"><a href="ajout_rdv.php?time=vendredi-10:30">10:30</a></td>
+                            <td class="available" id="vendredi-15:30"><a href="ajout_rdv.php?time=vendredi-15:30">15:30</a></td>
                             <!-- Samedi -->
-                            <td class="available" id="samedi-10:30">10:30</td>
-                            <td class="unavailable" id="samedi-15:30">15:30</td>
+                            <td class="available" id="samedi-10:30"><a href="ajout_rdv.php?time=samedi-10:30">10:30</a></td>
+                            <td class="available" id="samedi-15:30"><a href="ajout_rdv.php?time=samedi-15:30">15:30</a></td>
                         </tr>
 
                         <tr>
                             <!-- Lundi -->
-                            <td class="unavailable" id="lundi-11:00">11:00</td>
-                            <td class="available" id="lundi-16:00">16:00</td>
+                            <td class="available" id="lundi-11:00"><a href="ajout_rdv.php?time=lundi-11:00">11:00</a></td>
+                            <td class="available" id="lundi-16:00"><a href="ajout_rdv.php?time=lundi-16:00">16:00</a></td>
                             <!-- Mardi -->
-                            <td class="unavailable" id="mardi-11:00">11:00</td>
-                            <td class="available" id="mardi-16:00">16:00</td>
+                            <td class="available" id="mardi-11:00"><a href="ajout_rdv.php?time=mardi-11:00">11:00</a></td>
+                            <td class="available" id="mardi-16:00"><a href="ajout_rdv.php?time=mardi-16:00">16:00</a></td>
                             <!-- Mercredi -->
-                            <td class="available" id="mercredi-11:00">11:00</td>
-                            <td class="unavailable" id="mercredi-16:00">16:00</td>
+                            <td class="available" id="mercredi-11:00"><a href="ajout_rdv.php?time=mercredi-11:00">11:00</a></td>
+                            <td class="available" id="mercredi-16:00"><a href="ajout_rdv.php?time=mercredi-16:00">16:00</a></td>
                             <!-- Jeudi -->
-                            <td class="unavailable" id="jeudi-11:00">11:00</td>
-                            <td class="available" id="jeudi-16:00">16:00</td>
+                            <td class="available" id="jeudi-11:00"><a href="ajout_rdv.php?time=jeudi-11:00">11:00</a></td>
+                            <td class="available" id="jeudi-16:00"><a href="ajout_rdv.php?time=jeudi-16:00">16:00</a></td>
                             <!-- Vendredi -->
-                            <td class="available" id="vendredi-11:00">11:00</td>
-                            <td class="unavailable" id="vendredi-16:00">16:00</td>
+                            <td class="available" id="vendredi-11:00"><a href="ajout_rdv.php?time=vendredi-11:00">11:00</a></td>
+                            <td class="available" id="vendredi-16:00"><a href="ajout_rdv.php?time=vendredi-16:00">16:00</a></td>
                             <!-- Samedi -->
-                            <td class="available" id="samedi-11:00">11:00</td>
-                            <td class="unavailable" id="samedi-16:00">16:00</td>
-                        </tr>
-
-
-                        <tr>
-                            <!-- Lundi -->
-                            <td class="available" id="lundi-11:30">11:30</td>
-                            <td class="unavailable" id="lundi-16:30">16:30</td>
-                            <!-- Mardi -->
-                            <td class="available" id="mardi-11:30">11:30</td>
-                            <td class="unavailable" id="mardi-16:30">16:30</td>
-                            <!-- Mercredi -->
-                            <td class="unavailable" id="mercredi-11:30">11:30</td>
-                            <td class="available" id="mercredi-16:30">16:30</td>
-                            <!-- Jeudi -->
-                            <td class="available" id="jeudi-11:30">11:30</td>
-                            <td class="unavailable" id="jeudi-16:30">16:30</td>
-                            <!-- Vendredi -->
-                            <td class="unavailable" id="vendredi-11:30">11:30</td>
-                            <td class="available" id="vendredi-16:30">16:30</td>
-                            <!-- Samedi -->
-                            <td class="available" id="samedi-11:30">11:30</td>
-                            <td class="unavailable" id="samedi-16:30">16:30</td>
+                            <td class="available" id="samedi-11:00"><a href="ajout_rdv.php?time=samedi-11:00">11:00</a></td>
+                            <td class="available" id="samedi-16:00"><a href="ajout_rdv.php?time=samedi-16:00">16:00</a></td>
                         </tr>
 
 
                         <tr>
                             <!-- Lundi -->
-                            <td class="unavailable" id="lundi-12:00">12:00</td>
-                            <td class="available" id="lundi-17:00">17:00</td>
+                            <td class="available" id="lundi-11:30"><a href="ajout_rdv.php?time=lundi-11:30">11:30</a></td>
+                            <td class="available" id="lundi-16:30"><a href="ajout_rdv.php?time=lundi-16:30">16:30</a></td>
                             <!-- Mardi -->
-                            <td class="unavailable" id="mardi-12:00">12:00</td>
-                            <td class="available" id="mardi-17:00">17:00</td>
+                            <td class="available" id="mardi-11:30"><a href="ajout_rdv.php?time=mardi-11:30">11:30</a></td>
+                            <td class="available" id="mardi-16:30"><a href="ajout_rdv.php?time=mardi-16:30">16:30</a></td>
                             <!-- Mercredi -->
-                            <td class="available" id="mercredi-12:00">12:00</td>
-                            <td class="unavailable" id="mercredi-17:00">17:00</td>
+                            <td class="available" id="mercredi-11:30"><a href="ajout_rdv.php?time=mercredi-11:30">11:30</a></td>
+                            <td class="available" id="mercredi-16:30"><a href="ajout_rdv.php?time=mercredi-16:30">16:30</a></td>
                             <!-- Jeudi -->
-                            <td class="unavailable" id="jeudi-12:00">12:00</td>
-                            <td class="available" id="jeudi-17:00">17:00</td>
+                            <td class="available" id="jeudi-11:30"><a href="ajout_rdv.php?time=jeudi-11:30">11:30</a></td>
+                            <td class="available" id="jeudi-16:30"><a href="ajout_rdv.php?time=jeudi-16:30">16:30</a></td>
                             <!-- Vendredi -->
-                            <td class="available" id="vendredi-12:00">12:00</td>
-                            <td class="unavailable" id="vendredi-17:00">17:00</td>
+                            <td class="available" id="vendredi-11:30"><a href="ajout_rdv.php?time=vendredi-11:30">11:30</a></td>
+                            <td class="available" id="vendredi-16:30"><a href="ajout_rdv.php?time=vendredi-16:30">16:30</a></td>
                             <!-- Samedi -->
-                            <td class="available" id="samedi-12:00">12:00</td>
-                            <td class="unavailable" id="samedi-17:00">17:00</td>
+                            <td class="available" id="samedi-11:30"><a href="ajout_rdv.php?time=samedi-11:30">11:30</a></td>
+                            <td class="available" id="samedi-16:30"><a href="ajout_rdv.php?time=samedi-16:30">16:30</a></td>
                         </tr>
 
 
                         <tr>
                             <!-- Lundi -->
-                            <td class="available" id="lundi-12:30">12:30</td>
-                            <td class="unavailable" id="lundi-17:30">17:30</td>
+                            <td class="available" id="lundi-12:00"><a href="ajout_rdv.php?time=lundi-12:00">12:00</a></td>
+                            <td class="available" id="lundi-17:00"><a href="ajout_rdv.php?time=lundi-17:00">17:00</a></td>
                             <!-- Mardi -->
-                            <td class="available" id="mardi-12:30">12:30</td>
-                            <td class="unavailable" id="mardi-17:30">17:30</td>
+                            <td class="available" id="mardi-12:00"><a href="ajout_rdv.php?time=mardi-12:00">12:00</a></td>
+                            <td class="available" id="mardi-17:00"><a href="ajout_rdv.php?time=mardi-17:00">17:00</a></td>
                             <!-- Mercredi -->
-                            <td class="unavailable" id="mercredi-12:30">12:30</td>
-                            <td class="available" id="mercredi-17:30">17:30</td>
+                            <td class="available" id="mercredi-12:00"><a href="ajout_rdv.php?time=mercredi-12:00">12:00</a></td>
+                            <td class="available" id="mercredi-17:00"><a href="ajout_rdv.php?time=mercredi-17:00">17:00</a></td>
                             <!-- Jeudi -->
-                            <td class="available" id="jeudi-12:30">12:30</td>
-                            <td class="unavailable" id="jeudi-17:30">17:30</td>
+                            <td class="available" id="jeudi-12:00"><a href="ajout_rdv.php?time=jeudi-12:00">12:00</a></td>
+                            <td class="available" id="jeudi-17:00"><a href="ajout_rdv.php?time=jeudi-17:00">17:00</a></td>
                             <!-- Vendredi -->
-                            <td class="unavailable" id="vendredi-12:30">12:30</td>
-                            <td class="available" id="vendredi-17:30">17:30</td>
+                            <td class="available" id="vendredi-12:00"><a href="ajout_rdv.php?time=vendredi-12:00">12:00</a></td>
+                            <td class="available" id="vendredi-17:00"><a href="ajout_rdv.php?time=vendredi-17:00">17:00</a></td>
                             <!-- Samedi -->
-                            <td class="available" id="samedi-12:30">12:30</td>
-                            <td class="unavailable" id="samedi-17:30">17:30</td>
+                            <td class="available" id="samedi-12:00"><a href="ajout_rdv.php?time=samedi-12:00">12:00</a></td>
+                            <td class="available" id="samedi-17:00"><a href="ajout_rdv.php?time=samedi-17:00">17:00</a></td>
+                        </tr>
+
+
+                        <tr>
+                            <!-- Lundi -->
+                            <td class="available" id="lundi-12:30"><a href="ajout_rdv.php?time=lundi-12:30">12:30</a></td>
+                            <td class="available" id="lundi-17:30"><a href="ajout_rdv.php?time=lundi-17:30">17:30</a></td>
+                            <!-- Mardi -->
+                            <td class="available" id="mardi-12:30"><a href="ajout_rdv.php?time=mardi-12:30">12:30</a></td>
+                            <td class="available" id="mardi-17:30"><a href="ajout_rdv.php?time=mardi-17:30">17:30</a></td>
+                            <!-- Mercredi -->
+                            <td class="available" id="mercredi-12:30"><a href="ajout_rdv.php?time=mercredi-12:30">12:30</a></td>
+                            <td class="available" id="mercredi-17:30"><a href="ajout_rdv.php?time=mercredi-17:30">17:30</a></td>
+                            <!-- Jeudi -->
+                            <td class="available" id="jeudi-12:30"><a href="ajout_rdv.php?time=jeudi-12:30">12:30</a></td>
+                            <td class="available" id="jeudi-17:30"><a href="ajout_rdv.php?time=jeudi-17:30">17:30</a></td>
+                            <!-- Vendredi -->
+                            <td class="available" id="vendredi-12:30"><a href="ajout_rdv.php?time=vendredi-12:30">12:30</a></td>
+                            <td class="available" id="vendredi-17:30"><a href="ajout_rdv.php?time=vendredi-17:30">17:30</a></td>
+                            <!-- Samedi -->
+                            <td class="available" id="samedi-12:30"><a href="ajout_rdv.php?time=samedi-12:30">12:30</a></td>
+                            <td class="available" id="samedi-17:30"><a href="ajout_rdv.php?time=samedi-17:30">17:30</a></td>
                         </tr>
 
                         <tr>
                         <!-- Lundi -->
-                        <td class="unavailable" id="lundi-13:00">13:00</td>
-                        <td class="unavailable" id="lundi-18:00">18:00</td>
+                        <td class="available" id="lundi-13:00"><a href="ajout_rdv.php?time=lundi-13:00">13:00</a></td>
+                        <td class="available" id="lundi-18:00"><a href="ajout_rdv.php?time=lundi-18:00">18:00</a></td>
                         <!-- Mardi -->
-                        <td class="unavailable" id="mardi-13:00">13:00</td>
-                        <td class="unavailable" id="mardi-18:00">18:00</td>
+                        <td class="available" id="mardi-13:00"><a href="ajout_rdv.php?time=mardi-13:00">13:00</a></td>
+                        <td class="available" id="mardi-18:00"><a href="ajout_rdv.php?time=mardi-18:00">18:00</a></td>
                         <!-- Mercredi -->
-                        <td class="unavailable" id="mercredi-13:00">13:00</td>
-                        <td class="unavailable" id="mercredi-18:00">18:00</td>
+                        <td class="available" id="mercredi-13:00"><a href="ajout_rdv.php?time=mercredi-13:00">13:00</a></td>
+                        <td class="available" id="mercredi-18:00"><a href="ajout_rdv.php?time=mercredi-18:00">18:00</a></td>
                         <!-- Jeudi -->
-                        <td class="unavailable" id="jeudi-13:00">13:00</td>
-                        <td class="unavailable" id="jeudi-18:00">18:00</td>
+                        <td class="available" id="jeudi-13:00"><a href="ajout_rdv.php?time=jeudi-13:00">13:00</a></td>
+                        <td class="available" id="jeudi-18:00"><a href="ajout_rdv.php?time=jeudi-18:00">18:00</a></td>
                         <!-- Vendredi -->
-                        <td class="unavailable" id="vendredi-13:00">13:00</td>
-                        <td class="unavailable" id="vendredi-18:00">18:00</td>
+                        <td class="available" id="vendredi-13:00"><a href="ajout_rdv.php?time=vendredi-13:00">13:00</a></td>
+                        <td class="available" id="vendredi-18:00"><a href="ajout_rdv.php?time=vendredi-18:00">18:00</a></td>
                         <!-- Samedi -->
-                        <td class="unavailable" id="samedi-13:00">13:00</td>
-                        <td class="unavailable" id="samedi-18:00">18:00</td>
+                        <td class="available" id="samedi-13:00"><a href="ajout_rdv.php?time=samedi-13:00">13:00</a></td>
+                        <td class="available" id="samedi-18:00"><a href="ajout_rdv.php?time=samedi-18:00">18:00</a></td>
                     </tr>
-
-
                         
                     </tbody>
                 </table>
             </div>
         <div class="buttons">
+            <a href="ajout_rdv.php" class="btn_ajout">Deconnexion</a>
             <button id="book-appointment">Prendre un RDV</button>
             <button id="contact-agent">Communiquer avec l'agent immobilier</button>
             <button id="view-cv">Voir son CV</button>
@@ -332,33 +324,32 @@ if (isset($_SESSION['user_id'])) {
     </div>
             </div>         
         </div>
-    </main>
-
-    <?php 
-        if ($result && $result->num_rows > 0) {
-            // Affichage des rendez-vous dans un tableau
-            while($row = $result->fetch_assoc()) {
+        <?php 
+        if ($rdv && $rdv->num_rows > 0) {
+            while($row = $rdv->fetch_assoc()) {
                 foreach($row as $day => $time) {
                     if ($day !== 'ID_rdv' && $day !== 'ID_user' && $time !== null) {
-                        echo "<td>$day</td>";
-                        echo "<td>$time</td>";
-                        echo '<td>
-                            <form action="annulation.php" method="post">
-                                <input type="hidden" name="ID_rdv" value="' . htmlspecialchars($row['ID_rdv']) . '">
-                                <button type="submit" class="btn_deconnexion">Annuler</button>
-                            </form>
-                        </td>';
-                        echo "</tr>";
+                        $time_formatted = substr($time, 0, 5);
+                        $id = htmlspecialchars($row['jour']) . '-' . $time_formatted;
+                    
+                        echo "<script>
+                            var elementId = '{$id}';
+                            var element = document.getElementById(elementId);
+                            if (element) {
+                                element.className = 'unavailable';
+                            }
+                            var link = document.getElementById(elementId);
+                            if (link) {
+                                link.removeAttribute('href');
+                            }
+                        </script>";
                     }
                 }
             }
-            echo "</table>";
         } else {
             echo "Vous avez aucun rendez-vous de prévu";
         }
-        ?>
-    <script>
-        
-    </script>
+        ?> 
+    </main>
 </body>
 </html>

@@ -3,7 +3,7 @@ session_start(); // Démarrer la session
 // Vérifier si l'utilisateur est connecté
 if (isset($_SESSION['user_id'])) {
     // Identifier le nom de la base de données
-    $database = "omnes_immobilier";
+    $database = "omnes_immobilier"; 
 
     // Connectez-vous à votre BDD
     // Votre serveur = localhost | votre login = root | votre mot de passe = '' (rien)

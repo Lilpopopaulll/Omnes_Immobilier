@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
             selectedSlot.classList.remove('available');
             selectedSlot.classList.add('unavailable');
             selectedSlot.classList.remove('selected');
+            const selectedSlotId = selectedSlot.id;
+            console.log(`ID du créneau sélectionné: ${selectedSlotId}`);
+
         } else {
             confirmationMessage.textContent = 'Veuillez sélectionner un créneau disponible.';
         }
