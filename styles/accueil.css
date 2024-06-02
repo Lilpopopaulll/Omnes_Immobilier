@@ -255,7 +255,7 @@ main {
     left: 78%;
     border-radius: 2px;
     width: 20%;
-    height: 88%;
+    height: 85%;
     background-color: rgba(255, 255, 255, 0.3);
     text-align: left;
     padding-left: 30px;
@@ -323,8 +323,7 @@ main {
 
 .inscription {
     position: relative;
-    top: 40%;
-    font-weight: bold;
+    top: 20%;
 }
 .inscription a {
     text-decoration: none;
