@@ -258,10 +258,10 @@ if (isset($_SESSION['user_id'])) {
                 <img src="1.jpg" alt="">
             </div>
             <div class="content">
-                <a href="#" class="title">Le bien phare de cette semaine</a>
+                <a href="article1" class="title">Le bien phare de cette semaine</a>
                 <span>by Deborah / 21st may, 2024</span>
                 <p>Dans cet article, Nous allons vous présenter le nouveau... </p>
-                <a href="#" class="btn">Lire l'article</a>
+                <a href="article1" class="btn">Lire l'article</a>
             </div>
         </div>
 
@@ -270,10 +270,10 @@ if (isset($_SESSION['user_id'])) {
                 <img src="3.jpg" alt="">
             </div>
             <div class="content">
-                <a href="#" class="title">Omnes Immobilier: Hommage et Histoire</a>
+                <a href="article2" class="title">Omnes Immobilier: Hommage et Histoire</a>
                 <span>by Deborah / 1st may, 2024</span>
                 <p>Si vous connaissez l'enseigne Omnes ou que vous suivez notre travail depuis...</p>
-                <a href="#" class="btn">Lire l'article</a>
+                <a href="article2" class="btn">Lire l'article</a>
             </div>
         </div>
 
@@ -282,10 +282,10 @@ if (isset($_SESSION['user_id'])) {
                 <img src="2.jpg" alt="">
             </div>
             <div class="content">
-                <a href="#" class="title">Le Bailleul:L'histoire derriere ce bien </a>
+                <a href="article3" class="title">Le Bailleul:L'histoire derriere ce bien </a>
                
                 <p>Le Bailleul: L'histoire de ce bien d'exception et de sa decouverte recente...</p>
-                <a href="#" class="btn">Lire l'article</a>
+                <a href="article3" class="btn">Lire l'article</a>
             </div>
         </div>
 

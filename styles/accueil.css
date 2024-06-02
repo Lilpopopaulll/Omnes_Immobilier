@@ -195,10 +195,10 @@ main {
 .feature::after {
     border-bottom: 2px solid transparent;
     border-right: 2px solid transparent;
-    background: linear-gradient(-45deg, rgba(255, 0, 150, 0.7), rgba(255, 0, 150, 0) 50%);
+    background: linear-gradient(-45deg, rgba(255, 0, 150, 0.5), rgba(255, 0, 150, 0) 50%);
     background-clip: border-box;
     background-origin: border-box;
-    mask: linear-gradient(-45deg, rgba(255, 0, 150, 0.7), rgba(255, 0, 150, 0) 50%);
+    mask: linear-gradient(-45deg, rgba(255, 0, 150, 0.5), rgba(255, 0, 150, 0) 50%);
     mask-composite: exclude;
     -webkit-mask-composite: exclude; /* For Safari */
 }
@@ -206,11 +206,15 @@ main {
 
 
 .feature h2 {
+    z-index: 1000;
+
     color: #ffffff;
     margin-top: 0;
 }
 
 .feature p {
+    z-index: 1000;
+    font-size: 12px;
     color: #ffffff;
 }
 
@@ -948,7 +952,13 @@ section{
     background:none;
 }
 
+.blogs {
+    position: relative;
+    top : 10%;
+}
+
 .blogs .box-container{
+
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap:1.5rem;
@@ -1005,6 +1015,8 @@ section{
 .footer{
     background:var(--black);
     text-align: center;
+    position: relative;
+    top:10%;
 }
 
 .footer .share{
