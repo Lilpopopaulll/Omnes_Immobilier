@@ -163,9 +163,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="detail-container" id="property_details">
             
         </div>
-        <div class="nom_agents">
-            <p>dedfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
-        </div>
+        
     </div>
 </body>
 </html>

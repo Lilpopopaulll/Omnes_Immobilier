@@ -26,13 +26,12 @@ document.addEventListener("DOMContentLoaded", function() {
                                  "<p>ID Propriété: " + propertyID + "</p>" +
                                  "<p>Description: " + propertyDetail + "</p>" +
                                  "<h3>Nos agents agréés</h3>" +
-                                 "<form metho='post' action=''"+
-                                 "<a>" + propertyA1 + " </a>"+
-                                 "<a>" + propertyA2 + " </a>"+
-                                 "<a>" + propertyA3 + " </a>"+
-                                 "<a>" + propertyA4 + " </a>"+
-                                 "<a>" + propertyA5 + " </a>"+
-                                 "</form>";
+                                 "<p><Vous pouvez prendre rendez-vous avec eux dès maintenant en cliquant sur leur nom></p>" +
+                                 "<a href='infoAgent.php?property=" + encodeURIComponent(propertyA1) + "'>" + propertyA1 + " </a><br>"+
+                                 "<a href='infoAgent.php?property=" + encodeURIComponent(propertyA2) + "'>" + propertyA2 + " </a><br>"+
+                                 "<a href='infoAgent.php?property=" + encodeURIComponent(propertyA3) + "'>" + propertyA3 + " </a><br>"+
+                                 "<a href='infoAgent.php?property=" + encodeURIComponent(propertyA4) + "'>" + propertyA4 + " </a><br>"+
+                                 "<a href='infoAgent.php?property=" + encodeURIComponent(propertyA5) + "'>" + propertyA5 + " </a><br>";
 
 
 
