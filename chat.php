@@ -68,7 +68,7 @@ function loginForm() {
 <body>
 <?php
 if (!isset($_SESSION['name'])) {
-    loginForm();
+    header("Location: accueil.php");
 } else {
 ?>
     <div id="wrapper">
