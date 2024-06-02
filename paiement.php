@@ -20,7 +20,7 @@ if (isset($_GET['id_propriete']) && !empty($_GET['id_propriete'])) {
     $id_propriete = intval($_GET['id_propriete']); // Assurez-vous de valider et de sécuriser cette entrée
 
     // Récupérer les informations de la propriété
-    $sql = "SELECT Adresse, Ville, Prix, Image FROM proprietes WHERE ID_propriete = $id_propriete";
+    $sql = "SELECT Adresse, Ville, Prix, url_image FROM proprietes WHERE ID_propriete = $id_propriete";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -29,7 +29,7 @@ if (isset($_GET['id_propriete']) && !empty($_GET['id_propriete'])) {
         $adresse = $row['Adresse'];
         $ville = $row['Ville'];
         $prix = $row['Prix'];
-        $image = $row['Image'];
+        $image = $row['url_image'];
         $frais_agence = $prix * 0.10;
         $total = $prix + $frais_agence;
         $image_path = $image; // Chemin direct vers l'image

@@ -29,6 +29,11 @@ if (isset($_SESSION['user_id'])) {
                 }
 
     // Fermeture de la connexion à la base de données
+    $sql1 = "SELECT Nom_prenom, ID FROM agents_immobilier";
+    $result = $db_handle->query($sql1);
+
+    $sql2 = "SELECT ID_propriete,Nom FROM proprietes";
+    $result2 = $db_handle->query($sql2);
     mysqli_close($db_handle);
 } 
 ?>
@@ -50,7 +55,7 @@ if (isset($_SESSION['user_id'])) {
         <nav>
             <ul>
                 <li><a href="accueil.php">Accueil</a></li>
-                <li><a href="toutParcourir.html">Tout parcourir</a></li>
+                <li><a href="toutParcourir.php">Tout parcourir</a></li>
                 <li><a href="#">Recherche</a></li>
                 <li><a href="rdv.php">Rendez-vous</a></li>
                 <?php
@@ -66,8 +71,56 @@ if (isset($_SESSION['user_id'])) {
     
     <div class="wrapper">
         <div class="pdp">
-            
+            <?php 
+                if ($permission == 0) {
+                    if ($result && $result->num_rows > 0) {
+                        echo "<h3>Agent </h2>";
+                        echo "<table>";
+                        echo "<tr><th>ID</th><th>Nom</th><th>Action</th></tr>";
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Nom_prenom']) . "</td>";
+                            echo '<td>
+                                <form action="sup.php" method="post">
+                                    <input type="hidden" name="ID" value="' . htmlspecialchars($row['ID']) . '">
+                                    <button type="submit" class="btn_sup">X</button>
+                                </form>
+                            </td>';
+                            echo "</tr>";
+                        }
+                        echo "</table>";
+                    }
+                }
+                if ($permission == 0) {
+                    if ($result2 && $result2->num_rows > 0) {
+                        echo "<h3>Propriétes </h2>";
+                        echo "<table>";
+                        echo "<tr><th>ID</th><th>Nom</th><th>Action</th></tr>";
+                        while($row = $result2->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . htmlspecialchars($row['ID_propriete']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Nom']) . "</td>";
+                            echo '<td>
+                                <form action="sup_propriete.php" method="post">
+                                    <input type="hidden" name="ID_propriete" value="' . htmlspecialchars($row['ID_propriete']) . '">
+                                    <button type="submit" class="btn_sup">X</button>
+                                </form>
+                            </td>';
+                            echo "</tr>";
+                        }
+                        echo "</table>";
+                    }
+                }
+                if ($permission == 0) {
+                    echo "<a href='ajouter_propriete.php' class='btn_deconnexion'>Ajouter une propriété</a>";
+                    echo "<a href='ajouter_agent.php' class='btn_deconnexion'>Ajouter un agent</a>";
+
+                }
+            ?>
+            <br>
             <a href="deconnexion.php" class="btn_deconnexion">Deconnexion</a>
+            
         </div>
         <div class="info">
             <h2>Informations</h2>

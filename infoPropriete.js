@@ -31,7 +31,10 @@ document.addEventListener("DOMContentLoaded", function() {
                                  "<a href='infoAgent.php?property=" + encodeURIComponent(propertyA2) + "'>" + propertyA2 + " </a><br>"+
                                  "<a href='infoAgent.php?property=" + encodeURIComponent(propertyA3) + "'>" + propertyA3 + " </a><br>"+
                                  "<a href='infoAgent.php?property=" + encodeURIComponent(propertyA4) + "'>" + propertyA4 + " </a><br>"+
-                                 "<a href='infoAgent.php?property=" + encodeURIComponent(propertyA5) + "'>" + propertyA5 + " </a><br>";
+                                 "<a href='infoAgent.php?property=" + encodeURIComponent(propertyA5) + "'>" + propertyA5 + " </a><br>"+
+                                 "<br>"+
+                                 "<a class='acheter' href='paiement.php?id_propriete=" + encodeURIComponent(propertyID) + "'>" +  " Acheter </a><br>";
+
 
 
 

@@ -148,6 +148,7 @@ main {
 }
 .features {
     display: flex;
+    color : white;
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 20px; /* Gap between the boxes */
@@ -1071,12 +1072,12 @@ input[type=radio] {
 }
 
 .--container {
-  position: relative;
+  margin : auto;
   width: 100%;
   max-width: 800px;
   max-height: 550px;
   height: 100%;
-  left: 600px;
+  
   transform-style: preserve-3d;
   display: flex;
   justify-content: center;

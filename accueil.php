@@ -120,32 +120,19 @@ if (isset($_SESSION['user_id'])) {
         </section>
 
         
-        <section class="actions">
-            <div class="action">
-                <button class="action-btn">Nous contacter</button>
-            </div>
-            <div class="action">
-                <button class="action-btn">Informations</button>
-            </div>
-            <div class="action">
-                <button class="action-btn">Membres</button>
-            </div>
-        </section>
-        </section>
-        
         <div class="--container">
             <input type="radio" name="slider" id="item-1" checked>
             <input type="radio" name="slider" id="item-2">
             <input type="radio" name="slider" id="item-3">
           <div class="cards">
             <label class="card" for="item-1" id="song-1">
-              <img src="immo2.png" alt="song">
+              <img src="./images/RO.jpg" alt="song">
             </label>
             <label class="card" for="item-2" id="song-2">
-              <img src="R.jpg" alt="song">
+              <img src="./images/R.jpg" alt="song">
             </label>
             <label class="card" for="item-3" id="song-3">
-              <img src="R1.jpg" alt="song">
+              <img src="./images/R1.jpg" alt="song">
             </label>
           </div>
           <div class="player">
@@ -189,7 +176,7 @@ if (isset($_SESSION['user_id'])) {
     <div class="row">
 
         <div class="image">
-            <img src="images/immo2.png" alt="" >
+            <img src="./images/OIP.jpg" alt="" >
         </div>
 
         <div class="features">
@@ -203,131 +190,18 @@ if (isset($_SESSION['user_id'])) {
 
 </section>
 
-<!-- about section ends -->
-<section class="listings">
-    <h1 class="heading"> Nos <span>Biens</span> </h1>
-    <div class="box-container">
- 
-       <div class="box">
-          <div class="admin">
-             <h3>j</h3>
-             <div>
-                <p>john deo</p>
-                <span>10-11-2022</span>
-             </div>
-          </div>
-          <div class="thumb">
-             <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
-             <p class="type"><span>house</span><span>sale</span></p>
-             <form action="" method="post" class="save">
-                <button type="submit" name="save" class="far fa-heart"></button>
-             </form>
-             <img src="R.jpg" alt="">
-          </div>
-          <h3 class="name">modern flats and appartments</h3>
-          <p class="location"><i class="fas fa-map-marker-alt"></i><span>andheri, mumbai, india - 401303</span></p>
-          <div class="flex">
-             <p><i class="fas fa-bed"></i><span>3</span></p>
-             <p><i class="fas fa-bath"></i><span>2</span></p>
-             <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
-          </div>
-          <a href="view_property.html" class="btn">view property</a>
-       </div>
- 
-       <div class="box">
-          <div class="admin">
-             <h3>j</h3>
-             <div>
-                <p>john deo</p>
-                <span>10-11-2022</span>
-             </div>
-          </div>
-          <div class="thumb">
-             <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
-             <p class="type"><span>flat</span><span>sale</span></p>
-             <form action="" method="post" class="save">
-                <button type="submit" name="save" class="far fa-heart"></button>
-             </form>
-             <img src="R1.jpg" alt="">
-          </div>
-          <h3 class="name">modern flats and appartments</h3>
-          <p class="location"><i class="fas fa-map-marker-alt"></i><span>andheri, mumbai, india - 401303</span></p>
-          <div class="flex">
-             <p><i class="fas fa-bed"></i><span>3</span></p>
-             <p><i class="fas fa-bath"></i><span>2</span></p>
-             <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
-          </div>
-          <a href="view_property.html" class="btn">view property</a>
-       </div>
- 
-       <div class="box">
-          <div class="admin">
-             <h3>j</h3>
-             <div>
-                <p>john deo</p>
-                <span>10-11-2022</span>
-             </div>
-          </div>
-          <div class="thumb">
-             <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
-             <p class="type"><span>flat</span><span>sale</span></p>
-             <form action="" method="post" class="save">
-                <button type="submit" name="save" class="far fa-heart"></button>
-             </form>
-             <img src="m.jpg" alt="">
-          </div>
-          <h3 class="name">modern flats and appartments</h3>
-          <p class="location"><i class="fas fa-map-marker-alt"></i><span>andheri, mumbai, india - 401303</span></p>
-          <div class="flex">
-             <p><i class="fas fa-bed"></i><span>3</span></p>
-             <p><i class="fas fa-bath"></i><span>2</span></p>
-             <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
-          </div>
-          <a href="view_property.html" class="btn">view property</a>
-       </div>
- 
-       <div class="box">
-          <div class="admin">
-             <h3>j</h3>
-             <div>
-                <p>john deo</p>
-                <span>10-11-2022</span>
-             </div>
-          </div>
-          <div class="thumb">
-             <p class="total-images"><i class="far fa-image"></i><span>4</span></p>
-             <p class="type"><span>flat</span><span>sale</span></p>
-             <form action="" method="post" class="save">
-                <button type="submit" name="save" class="far fa-heart"></button>
-             </form>
-             <img src="RO.jpg" alt="">
-          </div>
-          <h3 class="name">modern flats and appartments</h3>
-          <p class="location"><i class="fas fa-map-marker-alt"></i><span>andheri, mumbai, india - 401303</span></p>
-          <div class="flex">
-             <p><i class="fas fa-bed"></i><span>3</span></p>
-             <p><i class="fas fa-bath"></i><span>2</span></p>
-             <p><i class="fas fa-maximize"></i><span>750sqft</span></p>
-          </div>
-          <a href="view_property.html" class="btn">view property</a>
-       </div>
-    </div>
-</div>
-<div class="view-more">
-    <center><a href="#" class="btn">Voir plus</a></center>
-</div>
-</section>    
+  
 
 <!-- review section starts  -->
 
 <section class="review" id="review">
 
-    <h1 class="heading"> nos meilleurs <span>avis</span> </h1>
+    <h1 class="heading"> Nos meilleurs <span>avis</span> </h1>
 
     <div class="box-container">
 
         <div class="box">
-            <img src="images/quote-img.png" alt="" class="quote">
+            <img src="./images/avis.jpg" alt="" class="quote">
             <p>Cette personne a un don pour capturer l'essence et l'histoire de chaque meuble qu'ils restaurent. Leur sensibilité artistique et leur savoir-faire technique se combinent pour créer des pièces qui racontent une histoire et qui ajoutent une touche d'élégance et de caractère à n'importe quel espace.</p>
             <img src="avis.jpg" class="user" alt="">
             <h3>XXXX </h3>
@@ -341,9 +215,9 @@ if (isset($_SESSION['user_id'])) {
         </div>
 
         <div class="box">
-            <img src="images/quote-img.png" alt="" class="features">
+            <img src="./images/avisf.jpg" alt="" class="features">
             <p>Je suis impressionné par le souci du détail de cette personne dans son travail de restauration de meubles. Chaque petite imperfection est soigneusement corrigée, et le résultat final est toujours impeccable.</p>
-            <img src="avisf.jpg" class="user" alt="">
+            <img src="./images/avisf.jpg" class="user" alt="">
             <h3>XXXX XXXXX</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -355,9 +229,9 @@ if (isset($_SESSION['user_id'])) {
         </div>
         
         <div class="box">
-            <img src="images/quote-img.png" alt="" class="features">
+            <img src="./images/OIP.jpg" alt="" class="features">
             <p>Une véritable magicienne du bois ! Cette personne a transformé un vieux meuble terne en une pièce d'art digne d'un musée. Leur talent pour restaurer et redonner vie aux meubles est tout simplement incroyable</p>
-            <img src="OIP.jpg" class="user" alt="">
+            <img src="./images/OIP.jpg" class="user" alt="">
             <h3>XXX XXXXX</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
@@ -409,7 +283,7 @@ if (isset($_SESSION['user_id'])) {
             </div>
             <div class="content">
                 <a href="#" class="title">Le Bailleul:L'histoire derriere ce bien </a>
-                <span>by Deborah / 21st April, 2024</span>
+               
                 <p>Le Bailleul: L'histoire de ce bien d'exception et de sa decouverte recente...</p>
                 <a href="#" class="btn">Lire l'article</a>
             </div>
@@ -468,7 +342,7 @@ if (isset($_SESSION['user_id'])) {
         <a href="#blogs">blogs</a>
     </div>
 
-    <div class="credit">created by <span>Benoit Quaranta For Omnes Immobilier</span> | all rights reserved</div>
+    <div class="credit">created by <span>Benoit, Paul, Theodore and Evan</span> | all rights reserved</div>
 
 </section>
 

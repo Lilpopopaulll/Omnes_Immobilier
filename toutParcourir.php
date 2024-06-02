@@ -102,30 +102,56 @@ if (isset($_SESSION['user_id'])) {
                     $propertyID = $row["ID_propriete"];
                     // Récupérer les informations de l'agent en fonction de l'ID de la propriété
                     $sql_agent = "SELECT a1, a2, a3, a4, a5 FROM liste_agents WHERE id= '$propertyID'";
-                    $result_agent = mysqli_query($db_handle, $sql_agent);
-                    $agent_info = mysqli_fetch_assoc($result_agent);
+                    $result2 = $db_handle->query($sql_agent);
 
+                    if ($result2->num_rows > 0) {
+                
 
-                    $sql_nom = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a1']) . "'";
-                    $result_nom = mysqli_query($db_handle, $sql_nom);
-                    $agent_nom = mysqli_fetch_assoc($result_nom);
+                        $result_agent = mysqli_query($db_handle, $sql_agent);
+                        $agent_info = mysqli_fetch_assoc($result_agent);
+                        $sql_nom = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a1']) . "'";
+                        $result_nom = mysqli_query($db_handle, $sql_nom);
+                        $agent_nom = mysqli_fetch_assoc($result_nom);
 
-                    $sql_nom1 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a2']) . "'";
-                    $result_nom1 = mysqli_query($db_handle, $sql_nom1);
-                    $agent_nom1 = mysqli_fetch_assoc($result_nom1);
+                        $sql_nom1 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a2']) . "'";
+                        $result_nom1 = mysqli_query($db_handle, $sql_nom1);
+                        $agent_nom1 = mysqli_fetch_assoc($result_nom1);
 
-                    $sql_nom2 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a3']) . "'";
-                    $result_nom2 = mysqli_query($db_handle, $sql_nom2);
-                    $agent_nom2 = mysqli_fetch_assoc($result_nom2);
+                        $sql_nom2 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a3']) . "'";
+                        $result_nom2 = mysqli_query($db_handle, $sql_nom2);
+                        $agent_nom2 = mysqli_fetch_assoc($result_nom2);
 
-                    $sql_nom3 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a4']) . "'";
-                    $result_nom3 = mysqli_query($db_handle, $sql_nom3);
-                    $agent_nom3 = mysqli_fetch_assoc($result_nom3);
+                        $sql_nom3 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a4']) . "'";
+                        $result_nom3 = mysqli_query($db_handle, $sql_nom3);
+                        $agent_nom3 = mysqli_fetch_assoc($result_nom3);
 
-                    $sql_nom4 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a5']) . "'";
-                    $result_nom4 = mysqli_query($db_handle, $sql_nom4);
-                    $agent_nom4 = mysqli_fetch_assoc($result_nom4);
+                        $sql_nom4 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars($agent_info['a5']) . "'";
+                        $result_nom4 = mysqli_query($db_handle, $sql_nom4);
+                        $agent_nom4 = mysqli_fetch_assoc($result_nom4);
 
+                    } else {
+                        $sql_nom = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars(1) . "'";
+                        $result_nom = mysqli_query($db_handle, $sql_nom);
+                        $agent_nom = mysqli_fetch_assoc($result_nom);
+
+                        $sql_nom1 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars(2) . "'";
+                        $result_nom1 = mysqli_query($db_handle, $sql_nom1);
+                        $agent_nom1 = mysqli_fetch_assoc($result_nom1);
+
+                        $sql_nom2 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars(3) . "'";
+                        $result_nom2 = mysqli_query($db_handle, $sql_nom2);
+                        $agent_nom2 = mysqli_fetch_assoc($result_nom2);
+
+                        $sql_nom3 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars(4) . "'";
+                        $result_nom3 = mysqli_query($db_handle, $sql_nom3);
+                        $agent_nom3 = mysqli_fetch_assoc($result_nom3);
+
+                        $sql_nom4 = "SELECT Nom_prenom FROM agents_immobilier WHERE ID= '" . htmlspecialchars(5) . "'";
+                        $result_nom4 = mysqli_query($db_handle, $sql_nom4);
+                        $agent_nom4 = mysqli_fetch_assoc($result_nom4);
+                    }
+
+                    
 
                     
 

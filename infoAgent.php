@@ -22,8 +22,9 @@ if (isset($_SESSION['user_id'])) {
     }
 }
 
-
-
+// Requête pour récupérer tous les rendez-vous de l'utilisateur
+$sql = "SELECT * FROM rdv WHERE ID_user = 15";
+$rdv = $db_handle->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -304,9 +305,9 @@ if (isset($_SESSION['user_id'])) {
                     </table>
                 </div>
                 <div class="buttons">
-                    <button id="contact-agent">Communiquer avec l'agent immobilier</button>
-                    
-                    <button id="view-cv">Voir son CV</button>
+                   
+                    <button id="contact-agent" onclick="location.href='chat.php'">Communiquer avec l'agent immobilier</button>
+                    <button id="view-cv" onclick="location.href='CVpdf.html'">Voir son CV</button>
                 </div>
                 <div id="confirmationMessage"></div>
             </div>         
