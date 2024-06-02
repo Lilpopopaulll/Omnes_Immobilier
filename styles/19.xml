@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Marc Lefevre</Name>
+        <Address>34 Avenue de l'Immobilier, Amiens, France</Address>
+        <Phone>+33 3 22 45 67 89</Phone>
+        <Email>marc.lefevre@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Amiens Immobilier</Company>
+            <Location>Amiens, France</Location>
+            <StartDate>2020-05-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Gestion des transactions immobilières et relations clients.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Picardie</Institution>
+        <Year>2019</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

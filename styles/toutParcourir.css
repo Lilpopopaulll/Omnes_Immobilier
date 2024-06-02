@@ -1,4 +1,14 @@
 /* styles2.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
 html, body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -11,7 +21,7 @@ html, body {
 .container {
     background-image: url("../images/bg_parcourir.jpg");
     width: 100%;
-    height: 1500px; /* Ajustez cette valeur en fonction de la hauteur souhaitée pour le défilement */
+    min-height: 1000px; /* Ajustez cette valeur en fonction de la hauteur souhaitée pour le défilement */
     background-size: contain; /* Adapte l'image à la taille de l'écran */
     background-repeat: no-repeat; /* Empêche la répétition de l'image */
     background-position: top center; /* Centre l'image dans le conteneur */
@@ -50,7 +60,7 @@ nav ul li {
 nav ul li a {
     color: white; /* White color for links */
     text-decoration: none;
-    font-size: 1em;
+    font-size: 1.7em;
     transition: color 0.3s ease;
 }
 
@@ -58,8 +68,18 @@ nav ul li a:hover {
     color: #ffcc00; /* Hover color for links */
 }
 
-.btn-connexion {
-    background-color: white; /* White background for the button */
+.btn_toggle_connexion {
+    background-color: rgb(255, 255, 255); /* White background for the button */
+    color: #000000;
+    padding: 5px 10px;
+    margin-right: 60px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 20px; /* Add margin to the left of the button to separate from the previous element */
+}
+.btn_toggle_compte {
+    background-color: rgb(255, 255, 255); /* White background for the button */
     color: #000000;
     padding: 5px 10px;
     margin-right: 60px;
@@ -69,11 +89,109 @@ nav ul li a:hover {
     margin-left: 20px; /* Add margin to the left of the button to separate from the previous element */
 }
 
-.btn-connexion:hover {
+.btn_toggle_connexion:hover {
     background-color: #e3bdf065;
     color: white;
 }
 
+.btn_toggle_compte:hover {
+    background-color: #e3bdf065;
+    color: white;
+}
+.overlay {
+    display: none;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    top: 50px;
+    left: 78%;
+    border-radius: 2px;
+    width: 20%;
+    height: 88%;
+    background-color: rgba(255, 255, 255, 0.3);
+    text-align: left;
+    padding-left: 30px;
+    padding-top: 30px;
+    transition: transform 0.7s ease-in-out;
+    transform: translateX(30vw); /* Position initiale hors écran */
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+    transform: translateX(20vw);
+}
+
+.show.visible {
+    transform: translateX(0);
+}
+
+
+#overlay_connexion h1 {
+    margin-bottom: 30px;
+}
+
+.lg_log {
+    position: relative;
+    top : -10px;
+    border: 1px solid rgba(161, 99, 158, 0.644);
+    width: 60%;
+}
+
+.btn_connexion {
+    z-index: 500;
+    width: 70%;
+    height: 30px;
+    border : none;
+    border-radius: 50px;
+    background-color: #fff;
+    position: relative;
+    top : 4%;
+    left: 8%;
+    font-weight: bold;
+    font-size: 17px;
+
+}
+
+
+
+.btn_connexion :hover {
+    color : yellow;
+}
+
+#overlay_connexion .input_log {
+    z-index: 200;
+    border : none;
+    background: transparent;
+    position: relative;
+    top : -15px;
+    font-weight: bold;
+    font-size: 14px;
+    color : rgba(77, 74, 69, 0.452)
+}
+
+.inscription {
+    position: relative;
+    top: 40%;
+    font-weight: bold;
+}
+.inscription a {
+    text-decoration: none;
+    color: rgba(197, 113, 183, 0.747);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none; 
+}
+#overlay_connexion p {
+    position: relative;
+    top : 50px;
+    right: 30px;
+    text-align: center;
+}
 main {
     padding-top: 100px; /* Adjusted padding for fixed header */
     text-align: center;
@@ -103,12 +221,107 @@ main {
 }
 
 
-
 .fond_blanc_dg {
     position: relative;
-    top:540px;
     width: 100%;
-    height: 500px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 55%, rgb(255, 255, 255) 100%)
+    height: 200px; /* Calcul de la hauteur du dégradé */
+    bottom: 500px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 55%, rgb(255, 255, 255) 100%);
 }
 
+.annonces-container {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.annonce {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(33.333% - 20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.annonce:hover {
+    transform: scale(1.05);
+}
+
+.annonce img {
+        max-width: 100%;
+        height: auto; /* Pour conserver le ratio hauteur/largeur */
+        border-radius: 5px;
+        width: 100%; /* Les images remplissent 100% de la largeur de leur conteneur */
+        height: 300px; /* Hauteur fixe pour toutes les images */
+    }
+
+.annonce h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.annonce p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.container_propriete h2 {
+    color: #161616;
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center; /* Centrer le texte */
+    border-bottom: 2px solid #ffffff; /* Ajouter une barre en dessous */
+    padding-bottom: 10px; /* Ajouter un espace entre le texte et la barre */
+}
+
+.no-properties {
+    font-size: 1.5em;
+    text-align: center; /* Centrer le texte */
+    margin-top: 20px; /* Ajouter un espace au-dessus du message */
+    margin-bottom: 20px; /* Ajouter un espace en dessous du message */
+}
+
+
+#overlay_detail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail-container {
+    background-color: white;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80%;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.detail-container img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.detail-container a  {
+    z-index: 1000;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.detail-container a:hover {
+    color : rgb(94, 94, 37);
+}

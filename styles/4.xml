@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CV>
+    <PersonalInfo>
+        <Name>Chloe Moreau</Name>
+        <Address>12 Place de l'Immobilier, Bordeaux, France</Address>
+        <Phone>+33 5 56 78 90 12</Phone>
+        <Email>chloe.moreau@example.com</Email>
+    </PersonalInfo>
+    <ProfessionalExperience>
+        <Job>
+            <Title>Agent Immobilier</Title>
+            <Company>Bordeaux Immo</Company>
+            <Location>Bordeaux, France</Location>
+            <StartDate>2020-03-01</StartDate>
+            <EndDate>2024-01-01</EndDate>
+            <Description>Accompagnement des clients dans la gestion de leurs biens immobiliers.</Description>
+        </Job>
+    </ProfessionalExperience>
+    <Education>
+        <Degree>Licence en Gestion Immobilière</Degree>
+        <Institution>Université de Bordeaux</Institution>
+        <Year>2019</Year>
+    </Education>
+    <Skills>
+        <Skill>Négociation</Skill>
+        <Skill>Connaissance du Marché</Skill>
+        <Skill>Prospection</Skill>
+        <Skill>Relations Clients</Skill>
+    </Skills>
+</CV>

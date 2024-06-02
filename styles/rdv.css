@@ -117,6 +117,102 @@ main {
     color: #fff; /* White for the main title */
 }
 
+.overlay {
+    z-index: 2000;
+    display: none;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    top: 50px;
+    left: 78%;
+    border-radius: 2px;
+    width: 20%;
+    height: 88%;
+    background-color: rgba(255, 255, 255, 0.3);
+    text-align: left;
+    padding-left: 30px;
+    padding-top: 30px;
+    transition: transform 0.7s ease-in-out;
+    transform: translateX(30vw); /* Position initiale hors écran */
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+    transform: translateX(20vw);
+}
+
+.show.visible {
+    transform: translateX(0);
+}
+
+
+#overlay_connexion h1 {
+    margin-bottom: 30px;
+}
+
+.lg_log {
+    position: relative;
+    top : -10px;
+    border: 1px solid rgba(161, 99, 158, 0.644);
+    width: 60%;
+}
+
+.btn_connexion {
+    z-index: 500;
+    width: 70%;
+    height: 30px;
+    border : none;
+    border-radius: 50px;
+    background-color: #fff;
+    position: relative;
+    top : 4%;
+    left: 8%;
+    font-weight: bold;
+    font-size: 17px;
+
+}
+
+
+
+.btn_connexion :hover {
+    color : yellow;
+}
+
+#overlay_connexion .input_log {
+    
+    border : none;
+    background: transparent;
+    position: relative;
+    top : -15px;
+    font-weight: bold;
+    font-size: 14px;
+    color : rgba(77, 74, 69, 0.452)
+}
+
+.inscription {
+    position: relative;
+    top: 40%;
+    font-weight: bold;
+}
+.inscription a {
+    text-decoration: none;
+    color: rgba(197, 113, 183, 0.747);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none; 
+}
+#overlay_connexion p {
+    position: relative;
+    top : 50px;
+    right: 30px;
+    text-align: center;
+}
+
 .calendrier_container {
     z-index: 100;
     width: 80%;
@@ -141,38 +237,50 @@ main {
     background-color: black;
 }
 
-.agents {
-    position: absolute;
-    top: 520px; /* Position ajustée pour être plus bas */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    text-align: center;
-    padding: 20px;
+.calendrier_container {
+    margin-top: 20px;
+    z-index: 1100;
 }
 
-.agents-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
+.calendrier_container table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.agent {
-    text-align: center;
+.calendrier_container table, 
+.calendrier_container th, 
+.calendrier_container td {
+    border: 1px solid #ddd;
+    padding: 8px;
 }
 
-.agent-circle {
-    width: 60px;
-    height: 60px;
-    border: 2px solid black;
-    border-radius: 50%;
-    background-color: transparent; /* Transparence pour voir l'image de fond */
-    margin: 0 auto 10px auto; /* Centrer le cercle et ajouter un espace en bas */
+.calendrier_container th {
+    background-color: #f2f2f2;
+    text-align: left;
 }
 
-.agent p {
-    font-size: 1em;
-    margin: 0;
-    color: #333;
+.calendrier_container tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
+
+.calendrier_container tr:hover {
+    background-color: #f1f1f1;
+}
+
+.calendrier_container td button {
+    background-color: #ff4d4d;
+    position: relative;
+    z-index: 2600;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.calendrier_container td button:hover {
+    background-color: #eb3636;
+}
+
+
+  

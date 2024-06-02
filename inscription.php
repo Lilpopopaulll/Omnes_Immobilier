@@ -36,6 +36,17 @@
         <input type="password" required name="mdp">
         <label>Enter votre mot de passe</label>
       </div>
+
+      <div class="input-field">
+        <select class="role" name="role" required>
+          <option value="" disabled selected></option>
+          <option value="utilisateur">Utilisateur</option>
+          <option value="agent">Agent Immobilier</option>
+          <option value="admin">Administrateur</option>
+        </select>
+        <label>Choisissez un rôle</label>
+      </div>
+      
       <button type="submit" name="inscrire">S'inscrire</button>
       <div class="register">
         <p>Déjà un compte ? <a href="accueil.php">Se connecter</a></p>

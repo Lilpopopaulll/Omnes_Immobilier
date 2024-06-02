@@ -6,7 +6,7 @@ html, body {
     color: #333;
     height: 100%;
     overflow-x: hidden;
-    background-image: url("bg_agent.jpg"); /* Image de fond */
+    background-image: url("./images/bg_agent.jpg"); /* Image de fond */
     background-size: cover; /* Adapte l'image à la taille de l'écran */
     background-repeat: no-repeat; /* Empêche la répétition de l'image */
     background-position: center; /* Centre l'image dans le conteneur */
@@ -14,7 +14,8 @@ html, body {
 
 .container {
     width: 100%;
-    min-height: 100vh;
+    height: 80%;
+    
 }
 
 header {
@@ -90,7 +91,7 @@ nav ul li a:hover {
 }
 
 main {
-    padding-top: 100px; /* Adjusted padding for fixed header */
+    padding-top: 70px; /* Adjusted padding for fixed header */
     text-align: center;
 }
 
@@ -100,16 +101,140 @@ h1 {
 }
 
 .agent-info {
-    background-color: rgba(255, 255, 255, 0.8); /* Fond blanc semi-transparent pour la section des informations */
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
     display: inline-block;
-    font-size: 1.2em; /* Augmentation de la taille de la police du texte général */
+    font-size: 1.2em;
+    width: 70%;
+    height: 40%; /* Si vous voulez conserver la hauteur fixe */
+    overflow-y: auto;
 }
 
 .agent-info p {
+    
     margin: 10px 0;
 }
 
 /* Font import */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+#agent-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+#agent-info img {
+    border-radius: 50%;
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #e0e0e0;
+}
+
+#agent-info div {
+    flex: 1;
+}
+
+#agent-info h2 {
+    margin: 0 0 10px;
+    color: #8b50a4;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+#agent-info p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 1em;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+#availability {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 1em;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+
+#availability th, #availability td {
+    border: 1px solid #dbbbff;
+    padding: 12px 15px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#availability th {
+    background-color: #633571;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.available {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.unavailable {
+    background-color: #b8b8b8;
+    cursor: not-allowed;
+}
+
+.buttons {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#book-appointment {
+    background-color: #8254a8;
+    color: white;
+}
+
+#book-appointment:hover {
+    background-color: #7c2188;
+}
+
+#contact-agent {
+    background-color: #fcafff;
+    color: white;
+}
+
+#contact-agent:hover {
+    background-color: #8e5fa2;
+}
+
+#view-cv {
+    background-color: #5828a7;
+    color: rgb(255, 255, 255);
+}
+
+#view-cv:hover {
+    background-color: #640e7e;
+}
+
+#confirmationMessage {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #3d3d3d;
+}
+
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
