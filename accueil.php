@@ -1,5 +1,8 @@
 <?php
 session_start(); // Démarrer la session
+
+$prenom = ''; // Initialiser la variable $prenom
+
 // Vérifier si l'utilisateur est connecté
 if (isset($_SESSION['user_id'])) {
     // Identifier le nom de la base de données
@@ -19,12 +22,12 @@ if (isset($_SESSION['user_id'])) {
     $sql = "SELECT prenom, nom, adresse, permission FROM users WHERE id = '$user_id'";
     $result = mysqli_query($db_handle, $sql);                
     if (mysqli_num_rows($result) > 0) {
-                    $user_info = mysqli_fetch_assoc($result);
-                    $prenom = $user_info['prenom'];   
-                    $permission = $user_info['permission']; // Nouvelle ligne pour récupérer la permission
-                } else {
-                    echo "Aucune information trouvée pour l'utilisateur.";
-                }
+        $user_info = mysqli_fetch_assoc($result);
+        $prenom = $user_info['prenom'];   
+        $permission = $user_info['permission']; // Nouvelle ligne pour récupérer la permission
+    } else {
+        echo "Aucune information trouvée pour l'utilisateur.";
+    }
 
     // Fermeture de la connexion à la base de données
     mysqli_close($db_handle);
