@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 31 mai 2024 à 22:31
+-- Généré le : dim. 02 juin 2024 à 12:32
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -31,23 +31,24 @@ DROP TABLE IF EXISTS `agents_immobilier`;
 CREATE TABLE IF NOT EXISTS `agents_immobilier` (
   `Nom_prenom` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Courriel` varchar(255) NOT NULL,
-  `Numéro de téléphone` int NOT NULL,
-  `ID` int NOT NULL AUTO_INCREMENT,
+  `téléphone` int NOT NULL,
+  `ID` int NOT NULL,
   `Spécialité` varchar(50) NOT NULL,
   `Description` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID`)
+  KEY `fk_user_id` (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `agents_immobilier`
 --
 
-INSERT INTO `agents_immobilier` (`Nom_prenom`, `Courriel`, `Numéro de téléphone`, `ID`, `Spécialité`, `Description`) VALUES
+INSERT INTO `agents_immobilier` (`Nom_prenom`, `Courriel`, `téléphone`, `ID`, `Spécialité`, `Description`) VALUES
 ('Dupont Marie', 'marie.dupont@exemple.com', 612345678, 1, 'Immobilier résidentiel', ''),
 ('Martin Jean', 'jean.martin@exemple.com', 698765432, 2, 'Immobilier commercial', ''),
 ('Bernard Sophie', 'sophie.bernard@exemple.com', 623456789, 3, 'Terrain', ''),
 ('Moreau Pierre', 'pierre.moreau@exemple.com', 687654321, 4, 'Appartement à louer', ''),
-('Lefevre Emma', 'emma.lefevre@exemple.com', 654321098, 5, 'Appartement à louer', '');
+('Lefevre Emma', 'emma.lefevre@exemple.com', 654321098, 5, 'Appartement à louer', ''),
+('', '', 0, 18, '', '');
 
 -- --------------------------------------------------------
 
@@ -71,6 +72,34 @@ CREATE TABLE IF NOT EXISTS `coordonnees` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `liste_agents`
+--
+
+DROP TABLE IF EXISTS `liste_agents`;
+CREATE TABLE IF NOT EXISTS `liste_agents` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `a1` int NOT NULL,
+  `a2` int NOT NULL,
+  `a3` int NOT NULL,
+  `a4` int NOT NULL,
+  `a5` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `liste_agents`
+--
+
+INSERT INTO `liste_agents` (`id`, `a1`, `a2`, `a3`, `a4`, `a5`) VALUES
+(1, 1, 2, 3, 5, 4),
+(2, 5, 4, 3, 2, 1),
+(3, 1, 2, 3, 4, 5),
+(4, 1, 2, 3, 4, 5),
+(5, 1, 2, 3, 4, 5);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `proprietes`
 --
 
@@ -81,8 +110,11 @@ CREATE TABLE IF NOT EXISTS `proprietes` (
   `Adresse` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Ville` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Prix` int NOT NULL,
-  `Image` varchar(255) NOT NULL,
+  `url_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Statut` varchar(50) NOT NULL,
+  `Nom` varchar(255) NOT NULL,
+  `Categorie` varchar(255) NOT NULL,
+  `Detail` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`ID_propriete`),
   KEY `ID` (`Agent_ID`) USING BTREE
 ) ENGINE=MyISAM AUTO_INCREMENT=5177 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -91,12 +123,12 @@ CREATE TABLE IF NOT EXISTS `proprietes` (
 -- Déchargement des données de la table `proprietes`
 --
 
-INSERT INTO `proprietes` (`ID_propriete`, `Agent_ID`, `Adresse`, `Ville`, `Prix`, `Image`, `Statut`) VALUES
-(1001, 1, '123 Rue de Rivoli', 'Paris', 750000, 'rivoli.jpg', 'à louer'),
-(2057, 2, '789 Rue de la République', 'Lyon', 600000, 'republique.jpg', 'à vendre'),
-(3089, 3, '202 Rue Paradis', 'Marseille', 500000, 'paradis.jpg', 'à louer'),
-(4123, 4, '404 Rue de Metz', 'Toulouse', 650000, 'metz.jpg', 'à vendre'),
-(5176, 5, '606 Rue de France', 'Nice', 780000, 'rue_de_france.jpg', 'à vendre');
+INSERT INTO `proprietes` (`ID_propriete`, `Agent_ID`, `Adresse`, `Ville`, `Prix`, `url_image`, `Statut`, `Nom`, `Categorie`, `Detail`) VALUES
+(5, 1, '123 Rue de Rivoli', 'Paris', 750000, './maisons/rivoli.jpg', 'à louer', 'Maison rivoli', 'Immobilier résidentiel', 'Découvrez cet élégant appartement de 150 m² situé dans un immeuble prestigieux en plein centre-ville. Offrant une vue panoramique sur la skyline, ce bien exceptionnel se compose de trois chambres spacieuses, d\'un grand salon lumineux avec des baies vitrée'),
+(4, 2, '789 Rue de la République', 'Lyon', 600000, './maisons/republique.jpg', 'à vendre', 'Appartement République', 'Immobilier commercial', 'Situé dans un quartier résidentiel paisible, cet appartement de 100 m² est idéal pour une famille. Il comprend trois chambres, une cuisine équipée avec coin repas, un grand salon avec balcon, et une salle de bains avec baignoire. Les pièces sont bien agen'),
+(3, 3, '202 Rue Paradis', 'Marseille', 500000, './maisons/paradis.jpg', 'à louer', 'Appartement parisien', 'Appartement à louer', 'Parfait pour un étudiant, ce studio de 25 m² a été récemment rénové et est prêt à emménager. Il dispose d\'une pièce principale avec un coin nuit, un espace de travail, une kitchenette équipée et une salle d\'eau avec douche. Situé à deux pas de l\'universit'),
+(2, 4, '404 Rue de Metz', 'Toulouse', 650000, './maisons/metz.jpg', 'à vendre', 'Appartement Toulouse', 'Immobilier résidentiel', 'Vivez l\'exception dans cet appartement de 90 m² doté d\'une terrasse de 20 m² offrant une vue dégagée sur la ville et ses alentours. Composé de deux chambres, d\'un séjour lumineux, d\'une cuisine moderne et d\'une salle de bains élégante, cet espace de vie e'),
+(1, 5, '606 Rue de France', 'Nice', 780000, './maisons/rue_de_france.jpg', 'à vendre', 'Appartement centre Paris', 'Immobilier commercial', 'Vivez l\'exception dans cet appartement de 90 m² doté d\'une terrasse de 20 m² offrant une vue dégagée sur la ville et ses alentours. Composé de deux chambres, d\'un séjour lumineux, d\'une cuisine moderne et d\'une salle de bains élégante, cet espace de vie e');
 
 -- --------------------------------------------------------
 
@@ -107,16 +139,12 @@ INSERT INTO `proprietes` (`ID_propriete`, `Agent_ID`, `Adresse`, `Ville`, `Prix`
 DROP TABLE IF EXISTS `rdv`;
 CREATE TABLE IF NOT EXISTS `rdv` (
   `ID_rdv` int NOT NULL AUTO_INCREMENT,
-  `Lundi` time NOT NULL,
-  `Mardi` time NOT NULL,
-  `Mercredi` time NOT NULL,
-  `Jeudi` time NOT NULL,
-  `Vendredi` time NOT NULL,
-  `Samedi` time NOT NULL,
   `ID_user` int DEFAULT NULL,
+  `jour` varchar(255) NOT NULL,
+  `heure` time NOT NULL,
   PRIMARY KEY (`ID_rdv`),
   KEY `fk_user` (`ID_user`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -132,26 +160,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `adresse` varchar(255) NOT NULL,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `mdp`, `permission`, `adresse`, `nom`, `prenom`) VALUES
-(1, '1234', 3, '', '', ''),
-(2, '', 0, '', '', ''),
-(3, 'de', 0, 'de', 'de', 'de'),
-(4, 'de', 0, 'dede', 'de', 'dedd'),
-(5, 'dzdz', 0, 'dzdz', 'dzd', 'dzd'),
-(6, 'dz', 0, 'dz', 'dz', 'dzdz'),
-(7, 'de', 0, 'de', 'de', 'Evan'),
-(8, 'fe', 0, 'fe', 'fe', 'efe'),
-(9, '1234', 0, 'Theo', 'de', 'Theo'),
-(10, '1234', 0, 'Evan', 'de', 'Evan'),
-(11, 'dede', 0, 'de', 'de', 'Evan'),
-(12, '1234', 0, 'de', 'de', 'Herve');
+INSERT INTO `users` (`id`, `mdp`, `permission`, `adresse`, `nom`, `prenom`, `email`) VALUES
+(14, '1234', 0, '3 avenue ', 'Drochon', 'Paul', 'paul.drochon@gmail.com'),
+(15, '1234', 0, 'Bussy', 'Siritham', 'Evan', 'Evan'),
+(16, '1234', 2, 'St ger', 'Quaranta', 'Benoit', 'Benoit'),
+(17, '1234', 1, 'Paris', 'Bricout', 'Theo', 'Theo'),
+(18, '1234', 1, 'Paris', 'Bricout', 'Theo', 'Theo');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
