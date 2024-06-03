@@ -29,7 +29,7 @@ if (isset($_SESSION['user_id'])) {
     }
 
     // Requête pour récupérer tous les rendez-vous de l'utilisateur
-    $sql = "SELECT jour, heure, ID_rdv FROM rdv WHERE ID_user = $user_id";
+    $sql = "SELECT jour, heure, ID_rdv, ID_agent FROM rdv WHERE ID_user = $user_id";
     $result = $db_handle->query($sql);
     
     // Fermeture de la connexion à la base de données
@@ -102,15 +102,18 @@ if (isset($_SESSION['user_id'])) {
             <?php
             
             if (isset($_SESSION['user_id'])) {
+                 
                 if ($result && $result->num_rows > 0) {
+                     
                     // Affichage des rendez-vous dans un tableau
                     echo "<h2>Vos rendez-vous </h2>";
                     echo "<table>";
-                    echo "<tr><th>Jour</th><th>Heure</th><th>Action</th></tr>";
+                    echo "<tr><th>Jour</th><th>Heure</th><th>ID Agent</th><th>Action</th></tr>";
                     while($row = $result->fetch_assoc()) {
                         echo "<tr>";
                         echo "<td>" . htmlspecialchars($row['jour']) . "</td>";
                         echo "<td>" . htmlspecialchars($row['heure']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['ID_agent']) . "</td>";
                         echo '<td>
                             <form action="annulation.php" method="post">
                                 <input type="hidden" name="ID_rdv" value="' . htmlspecialchars($row['ID_rdv']) . '">

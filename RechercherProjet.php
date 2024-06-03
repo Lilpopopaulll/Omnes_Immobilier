@@ -18,13 +18,7 @@
                 <li><a href="toutParcourir.php">Tout parcourir</a></li>
                 <li><a href="RechercherProjet.php">Recherche</a></li>
                 <li><a href="rdv.php">Rendez-vous</a></li>
-                <?php
-                if (isset($_SESSION['user_id'])) {
-                    echo '<li><a href="profil.php" class="btn_toggle_compte">'.htmlspecialchars($prenom).'</a></li>';
-                } else {
-                    echo '<li><a href="#" class="btn_toggle_connexion">Connexion</a></li>';
-                }
-                ?>
+                
             </ul>
         </nav>
     </header>
